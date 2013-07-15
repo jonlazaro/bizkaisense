@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block head %}
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+{% endblock %}
+
+{% block content %}
+  <!--h1>DOWN FOR MAINTENANCE</h1>
+  <h3>Sorry for the inconvenience</h3-->
+  <h1 id="centered"><small>Estaciones de medición de calidad del aire</small></h1>
+  <section>
+  	<div>
+		En este mapa se encuentran geolocalizadas las estaciones de medición de la calidad del aire en la Comunidad Autónoma Vasca.<br/>
+		Pincha en las estaciones para buscar sus datos de calidad del aire:<br/><br/>
+	    	<div id="map_canvas"></div>
+	<br />
+  </section>
+{% endblock %}
+
+{% block scripts %}
+  <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
+  <script>
+    function init() {
+      Proj4js.defs["EPSG:23030"] = "+proj=utm +zone=30 +ellps=intl +towgs84=-131,-100.3,-163.4,-1.244,-0.020,-1.144,9.39 +units=m +no_defs";
+
+      var measures = [
+        {"type": "SO2", "max": 125},
+        {"type": "NO2", "max": 200},
+        {"type": "PM10", "max": 50},
+        {"type": "CO", "max": 10000},
+        {"type": "O3", "max": 180} ];
+
+      var map = new OpenLayers.Map("map_canvas");
+      var mapnik         = new OpenLayers.Layer.OSM({"sphericalMercator": true});
+      var wgsProjection  = new OpenLayers.Projection("EPSG:4326");    // WGS 1984 Projection
+      var smProjection   = new OpenLayers.Projection("EPSG:900913");  // Spherical Mercator Projection
+      var utmProjection  = new OpenLayers.Projection("EPSG:23030");   // UTM Projection
+      var position       = new OpenLayers.LonLat(-2.5, 43).transform(wgsProjection, smProjection);
+      var zoom           = 9; 
+
+      map.addLayer(mapnik);
+      map.setCenter(position, zoom );
+
+      ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      var testData = { "max": 0, "data": []};
+
+      var size = new OpenLayers.Size(32,37);
+      var offset = new OpenLayers.Pixel(-(size.w/2), -size.h);
+      var icon = new OpenLayers.Icon('{{ STATIC_PREFIX }}images/wind.png', size, offset);
+
+      var markers = new OpenLayers.Layer.Markers( "Estaciones" );
+
+      //disable the autosize for the purpose of our matrix
+      OpenLayers.Popup.FramedCloud.prototype.autoSize = false;
+
+      AutoSizeFramedCloud = OpenLayers.Class(OpenLayers.Popup.FramedCloud, { 'autoSize': true });
+
+      {% for station in stations %}
+        var contentString = 
+          '<div>' +
+            '<h4>{{ station.name }}</h4>' +
+            '<a href="/bizkaisense/station/{{ station.id }}">Mostrar detalles</a><br />' +
+            'Más información en <a href="{{ station.url }}" target="_blank">su web</a>.<br />' + 
+            '<a href="{{ station.uri }}" target="_blank"><figure><img src="{{ STATIC_PREFIX }}images/rdf.png" width="30"/></figure></a>' + 
+          '</div>';
+
+        testData.data.push({ "lat": {{ station.lat }}, "lon": {{ station.lng }}});
+
+        var ll = new OpenLayers.LonLat({{ station.lng }}, {{ station.lat }}).transform( wgsProjection, smProjection);
+        var popupClass = AutoSizeFramedCloud;
+        var popupContentHTML = contentString;
+
+        var feature = new OpenLayers.Feature(markers, ll); 
+        feature.closeBox = true;
+        feature.popupClass = popupClass;
+        feature.data.popupContentHTML = popupContentHTML;
+        feature.data.overflow = "auto";
+        
+        feature.data.icon = new OpenLayers.Icon('{{ STATIC_PREFIX }}/images/wind.png', size, offset);
+                
+        var marker = feature.createMarker();
+        marker.defaultIcon = icon.clone();
+
+        var markerClick = function (evt) {
+            if (this.popup == null) {
+                this.popup = this.createPopup(this.closeBox);
+                map.addPopup(this.popup);
+                this.popup.show();
+            } else {
+                this.popup.toggle();
+            }
+            currentPopup = this.popup;
+            OpenLayers.Event.stop(evt);
+        };
+        marker.events.register("mousedown", feature, markerClick);
+
+        markers.addMarker(marker);
+      {% endfor %}
+
+      var transformedTestData = { "max": testData.max , "data": [] };
+      var data = testData.data;
+      var datalen = data.length;
+      var nudata = [];
+
+      while(datalen--) {
+        nudata.push( {
+          "lonlat": new OpenLayers.LonLat(data[datalen].lon, data[datalen].lat),
+        });
+
+        transformedTestData.data = nudata;
+      };
+
+      map.addLayer(markers);
+    };
+  </script>
+
+<script>
+$('#tit1').addClass('active');
+</script>
+{% endblock %}

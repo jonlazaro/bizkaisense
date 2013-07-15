@@ -1,0 +1,217 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE Ontology [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://dev.morelab.deusto.es/bizkaisense/ucum-extended.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     ontologyIRI="http://dev.morelab.deusto.es/bizkaisense/ucum-extended.owl">
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Import>http://purl.oclc.org/NET/muo/ucum/</Import>
+    <Declaration>
+        <NamedIndividual IRI="#cubic-meter"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#meter-per-second"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#meter-squared"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#micro-gram-per-cubic-meter"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#microgram"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#millibar"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#milligram"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#milligram-per-cubic-meter"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#milliwatt"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#milliwatt-per-meter-squared"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#watt-per-meter-squared"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="http://purl.oclc.org/NET/muo/muo#SimpleDerivedUnit"/>
+        <NamedIndividual IRI="#cubic-meter"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.oclc.org/NET/muo/muo#ComplexDerivedUnit"/>
+        <NamedIndividual IRI="#meter-per-second"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.oclc.org/NET/muo/muo#SimpleDerivedUnit"/>
+        <NamedIndividual IRI="#meter-squared"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.oclc.org/NET/muo/muo#ComplexDerivedUnit"/>
+        <NamedIndividual IRI="#micro-gram-per-cubic-meter"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.oclc.org/NET/muo/muo#SimpleDerivedUnit"/>
+        <NamedIndividual IRI="#microgram"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.oclc.org/NET/muo/muo#SimpleDerivedUnit"/>
+        <NamedIndividual IRI="#millibar"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.oclc.org/NET/muo/muo#SimpleDerivedUnit"/>
+        <NamedIndividual IRI="#milligram"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.oclc.org/NET/muo/muo#ComplexDerivedUnit"/>
+        <NamedIndividual IRI="#milligram-per-cubic-meter"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.oclc.org/NET/muo/muo#SimpleDerivedUnit"/>
+        <NamedIndividual IRI="#milliwatt"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.oclc.org/NET/muo/muo#ComplexDerivedUnit"/>
+        <NamedIndividual IRI="#milliwatt-per-meter-squared"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.oclc.org/NET/muo/muo#ComplexDerivedUnit"/>
+        <NamedIndividual IRI="#watt-per-meter-squared"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://purl.oclc.org/NET/muo/muo#derivesFrom"/>
+        <NamedIndividual IRI="#cubic-meter"/>
+        <NamedIndividual IRI="http://purl.oclc.org/NET/muo/ucum/unit/length/meter"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://purl.oclc.org/NET/muo/muo#derivesFrom"/>
+        <NamedIndividual IRI="#meter-per-second"/>
+        <NamedIndividual IRI="http://purl.oclc.org/NET/muo/ucum/unit/time/second"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://purl.oclc.org/NET/muo/muo#derivesFrom"/>
+        <NamedIndividual IRI="#meter-per-second"/>
+        <NamedIndividual IRI="http://purl.oclc.org/NET/muo/ucum/unit/length/meter"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://purl.oclc.org/NET/muo/muo#derivesFrom"/>
+        <NamedIndividual IRI="#meter-squared"/>
+        <NamedIndividual IRI="http://purl.oclc.org/NET/muo/ucum/unit/length/meter"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://purl.oclc.org/NET/muo/muo#derivesFrom"/>
+        <NamedIndividual IRI="#micro-gram-per-cubic-meter"/>
+        <NamedIndividual IRI="#cubic-meter"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://purl.oclc.org/NET/muo/muo#derivesFrom"/>
+        <NamedIndividual IRI="#micro-gram-per-cubic-meter"/>
+        <NamedIndividual IRI="#microgram"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://purl.oclc.org/NET/muo/muo#derivesFrom"/>
+        <NamedIndividual IRI="#microgram"/>
+        <NamedIndividual IRI="http://purl.oclc.org/NET/muo/ucum/unit/mass/gram"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://purl.oclc.org/NET/muo/muo#modifierPrefix"/>
+        <NamedIndividual IRI="#microgram"/>
+        <NamedIndividual IRI="http://purl.oclc.org/NET/muo/ucum/prefix/micro"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://purl.oclc.org/NET/muo/muo#derivesFrom"/>
+        <NamedIndividual IRI="#millibar"/>
+        <NamedIndividual IRI="http://purl.oclc.org/NET/muo/ucum/unit/pressure/bar"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://purl.oclc.org/NET/muo/muo#modifierPrefix"/>
+        <NamedIndividual IRI="#millibar"/>
+        <NamedIndividual IRI="http://purl.oclc.org/NET/muo/ucum/prefix/milli"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://purl.oclc.org/NET/muo/muo#derivesFrom"/>
+        <NamedIndividual IRI="#milligram"/>
+        <NamedIndividual IRI="http://purl.oclc.org/NET/muo/ucum/unit/mass/gram"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://purl.oclc.org/NET/muo/muo#modifierPrefix"/>
+        <NamedIndividual IRI="#milligram"/>
+        <NamedIndividual IRI="http://purl.oclc.org/NET/muo/ucum/prefix/milli"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://purl.oclc.org/NET/muo/muo#derivesFrom"/>
+        <NamedIndividual IRI="#milligram-per-cubic-meter"/>
+        <NamedIndividual IRI="#milligram"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://purl.oclc.org/NET/muo/muo#derivesFrom"/>
+        <NamedIndividual IRI="#milligram-per-cubic-meter"/>
+        <NamedIndividual IRI="#cubic-meter"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://purl.oclc.org/NET/muo/muo#derivesFrom"/>
+        <NamedIndividual IRI="#milliwatt"/>
+        <NamedIndividual IRI="http://purl.oclc.org/NET/muo/ucum/unit/length/meter"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://purl.oclc.org/NET/muo/muo#modifierPrefix"/>
+        <NamedIndividual IRI="#milliwatt"/>
+        <NamedIndividual IRI="http://purl.oclc.org/NET/muo/ucum/prefix/milli"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://purl.oclc.org/NET/muo/muo#derivesFrom"/>
+        <NamedIndividual IRI="#milliwatt-per-meter-squared"/>
+        <NamedIndividual IRI="#milliwatt"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://purl.oclc.org/NET/muo/muo#derivesFrom"/>
+        <NamedIndividual IRI="#milliwatt-per-meter-squared"/>
+        <NamedIndividual IRI="#meter-squared"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://purl.oclc.org/NET/muo/muo#derivesFrom"/>
+        <NamedIndividual IRI="#watt-per-meter-squared"/>
+        <NamedIndividual IRI="#meter-squared"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://purl.oclc.org/NET/muo/muo#derivesFrom"/>
+        <NamedIndividual IRI="#watt-per-meter-squared"/>
+        <NamedIndividual IRI="http://purl.oclc.org/NET/muo/ucum/unit/power/Watt"/>
+    </ObjectPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://purl.oclc.org/NET/muo/muo#dimensionalSize"/>
+        <NamedIndividual IRI="#cubic-meter"/>
+        <Literal datatypeIRI="&xsd;float">3</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://purl.oclc.org/NET/muo/muo#dimensionalSize"/>
+        <NamedIndividual IRI="#meter-squared"/>
+        <Literal datatypeIRI="&xsd;float">2</Literal>
+    </DataPropertyAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 3.2.3.1824) http://owlapi.sourceforge.net -->
+

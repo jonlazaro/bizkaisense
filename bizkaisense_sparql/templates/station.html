@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
+
+{% block content %}
+    <section>
+      {% if error  %}
+        <h2>ERROR: {{ error }}</h2>
+	  	{% else %}
+    		<h1 id="centered"><small>{{ station.name }} ({{ station.id }})</small></h1>
+		<br />
+	    	<div class="span3">
+	    		{% if station.address %}
+	    			<p>{{ station.address }}</p>
+	    		{% endif %}
+	    		<img src="http://staticmap.openstreetmap.de/staticmap.php?center={{ station.lat }},{{ station.lng }}&zoom=14&size=200x200&maptype=mapnik&markers={{ station.lat }},{{ station.lng }},ol-marker" class="img-polaroid span2"/>
+	    		<div class="span2"><br /><a href="{{ station.uri }}" target="_blank"><img src="{{ STATIC_PREFIX }}images/rdf.png"/></a></div>
+			</div>
+
+	      	<div class="span7">
+	    		<form action="{{ station.id }}" method="post">{% csrf_token %}
+				  Selecciona las estadísticas que quieras ver:<br />
+				  {{ form.date.errors }}
+				<div class="control-group well">
+				  <div class="controls">
+				    <div class="input-append pull-left span3">
+				      {{ form.date }}
+				      <button id="id_date_btn" class="btn" type="button"><i class="icon-calendar"></i></button>
+				    </div>
+				   <div class="pull-left">{{ form.obstypes.errors }}{{ form.obstypes }}&nbsp;&nbsp;&nbsp;&nbsp;</div>
+				   <input type="submit" value="Ver" class="btn pull-left"/> 
+				   </div>
+				  </div>
+				</form>
+
+				{% if results %}
+					<div id="chart_div" class="chart_div"></div>
+					{% if limvalueobs %}<b>*Acerca del valor límite:</b> {{ limvalueobs }}.<br /><br />{% endif %}
+						<table class="table table-condensed table-striped table-bordered">
+						  	<thead>
+							<tr>
+							    <th>Hora</th>
+							    <th>Medición</th>
+							    <th>RDF</th>
+						  	</tr>
+							</thead>
+							<tbody>
+						  	{% for result in results %}
+								<tr>
+								    <td>{{ result.date|date:"H:i" }}</td>
+								    <td>{{ result.value }} {{ result.obsunit }}</td>
+								    <td class="span1"><a href="{{ result.uri }}" target="_blank" ><img src="{{ STATIC_PREFIX }}images/rdf.png" width="25"/></a></td>
+								</tr>
+						  	{% endfor %}
+							</tbody>
+						</table>
+				{% else %}
+					<p>Ningún resultado encontrado</p>
+				{% endif %}
+	    	</div>
+	  	{% endif %}
+  	</section> 
+{% endblock %}
+
+{% block scripts %}
+	<script src="https://www.google.com/jsapi"></script>
+	<script>
+		google.load('visualization', '1', {packages: ['corechart']});
+	</script>
+	<script>
+
+		function drawVisualization(a) {
+		  	var rowData = [['', '{{ obstype }}' {% if limvalue %}, 'Valor límite' {% endif %}],
+					    {% for result in results %}
+							['{{ result.date|date:"H:i" }}', {{ result.value }} {% if limvalue %}, {{ limvalue }} {% endif %}],
+						{% endfor %}
+					    ];
+
+		  	// Create and populate the data table.
+		  	var data = google.visualization.arrayToDataTable(rowData);
+
+		  	// Create and draw the visualization.
+		  	var ac = new google.visualization.ComboChart(document.getElementById('chart_div'));
+		  	ac.draw(data, {
+			title : 'Mediciones de {{ obstype }} del día {{ results.0.date|date:"Y-m-d" }} en {{ station.name }}',
+			vAxis: {title: "Cantidad ({{ results.0.obsunit }})"},
+			hAxis: {title: "Hora"},
+			seriesType: "area",
+			{% if limvalue %} series: {1: {type: "line"}}, {% endif %}
+			colors:['green'{% if limvalue %}, 'red'{% endif %}],
+		  });
+		};
+
+		function init() {
+			$("#id_date").datepicker({ 
+				maxDate: -1,
+				dateFormat: "yy-mm-dd"
+			});
+			$("#id_date_btn").click(function(event) {
+		            event.preventDefault();
+		            $("#id_date").focus();
+	        	})
+			
+			drawVisualization('{{ station.name }}');
+		};
+	</script>
+
+<script>
+$('#tit1').addClass('active');
+</script>
+
+{% endblock %}
+
