@@ -26,7 +26,7 @@
 
         <link rel="stylesheet" href="{{ STATIC_PREFIX }}css/style.css"/>
 
-	<link rel="stylesheet" href="{{ STATIC_PREFIX }}css/custom-theme/jquery-ui-1.8.17.custom.css"/>
+	<link rel="stylesheet" href="{{ STATIC_PREFIX }}css/ikelin-bootstrap-datepicker/bootstrap-datepicker.min.css"/>
 
         {% block stylesheets %}
             <!-- Your custom stylesheets -->
@@ -35,12 +35,29 @@
     </head>
 
     <body onload="init();">
-        <header><img src="{{ STATIC_PREFIX }}images/bizkaisense.png" width=250 /></header>
+        <header><!--a href="http://helheim.deusto.es/bizkaisense/"><img src="{{ STATIC_PREFIX }}images/bizkaisense.png" width=250 /></a-->
+<h1><a href="http://helheim.deusto.es/bizkaisense/"><strong class="green">Bizkai</strong><strong class="blue">Sense</strong></a></h1>
+
+</header>
 
         <div class="container" style="min-height: 600px;">
+
+<div class="navbar">
+              <div class="navbar-inner">
+                <ul class="nav">
+  <li id="tit1"><a href="/bizkaisense">Estaciones de calidad del aire</a></li>
+  <li id="tit2"><a href="http://energia.deusto.es/BizkaiSenseCA/" target="_blank">Cálculo de calidad del aire</a></li>
+  <li id="tit3"><a href="/bizkaisense/endpoint">SNORQL Endpoint</a></li>
+  <li id="tit4"><a href="http://helheim.deusto.es/bizkaisense/sparql" target="_blank">SPARQL Endpoint (POST)</a></li>
+  <li id="tit5"><a href="/bizkaisense/docs">Documentación</a></li>
+                </ul>
+              </div>
+            </div>
+
             {% block content %}
                 <!-- Your custom block content -->
             {% endblock %}
+
         </div>
 
         <div id="push"></div>
@@ -63,7 +80,7 @@
         <script src="{{ STATIC_PREFIX }}js/bootstrap.js"></script>
         <script src="{{ STATIC_PREFIX }}js/proj4js-compressed.js"></script>
         <!--script src="{{ STATIC_PREFIX }}js/modernizr-2.0.6.min.js"></script-->
-        <script src="{{ STATIC_PREFIX }}js/jquery-ui-1.8.17.custom.min.js"></script>
+        <script src="{{ STATIC_PREFIX }}js/ikelin-bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
         <script src="{{ STATIC_PREFIX }}js/jquery.ui.datepicker-es.js"></script>
         <script src="{{ STATIC_PREFIX }}js/script.js"></script>
 

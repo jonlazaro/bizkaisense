@@ -8,10 +8,11 @@
 {% block content %}
   <!--h1>DOWN FOR MAINTENANCE</h1>
   <h3>Sorry for the inconvenience</h3-->
+  <h1 id="centered"><small>Estaciones de medición de calidad del aire</small></h1>
   <section>
   	<div>
-		<!--a href="#" onclick="window.alert("hola");">hola</a-->
-  		<h3>Lista de Estaciones geolocalizadas</h3>
+		En este mapa se encuentran geolocalizadas las estaciones de medición de la calidad del aire en la Comunidad Autónoma Vasca.<br/>
+		Pincha en las estaciones para buscar sus datos de calidad del aire:<br/><br/>
 	    	<div id="map_canvas"></div>
 	<br />
   </section>
@@ -114,4 +115,8 @@
       map.addLayer(markers);
     };
   </script>
+
+<script>
+$('#tit1').addClass('active');
+</script>
 {% endblock %}

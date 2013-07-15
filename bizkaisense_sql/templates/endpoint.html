@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
+
+{% block content %}
+<object type="text/html" data="http://helheim.deusto.es/bizkaisense/snorql/" class="span9" height="500px"></object>
+{% endblock %}
+
+{% block scripts %}
+<script>
+$('#tit3').addClass('active');
+</script>
+{% endblock %}

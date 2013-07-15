@@ -188,11 +188,42 @@ footer {
 
 div.chart_div {
         height: 300px;
-        background-color:#fff;
+        background-color:fff;
         margin-bottom:20px;
 }
 
 div.ui-datepicker{
         font-size:11px;
+}
+
+h1#centered{
+	text-align: center;
+}
+
+
+@font-face {
+  font-family: 'ubuntu';
+  src: url('Ubuntu-Bold.ttf');
+}
+
+h1 {
+    margin: 0;
+    font-size: 3em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+strong {
+    font-family: 'ubuntu', serif;
+    color: white;
+    padding: 10px;
+}
+
+.green {
+    background-color: #41b23c;
+}
+
+.blue {
+    background-color: #1965b7;
 }
 

@@ -17,6 +17,11 @@ urlpatterns = patterns('',
     # url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'website.views.index'),
     url(r'^station/(?P<stid>\w+)$', 'website.views.station'),
+    url(r'^endpoint$', 'website.views.endpoint'),
+    url(r'^docs$', 'website.views.docs'),
+    url(r'^api/obs_day/(?P<stid>\w+)/(?P<propid>\w+)/(?P<date>\d{4}\-\d{2}\-\d{2})$', 'website.views.api_obs_day'),
+    url(r'^api/outlimit_stations/(?P<propid>\w+)/(?P<startdate>\d{4}\-\d{2}\-\d{2})/(?P<enddate>\d{4}\-\d{2}\-\d{2})/(?P<limit>\d+\.?\d*)$', 'website.views.api_outlimit_stations'),
+    #api/obs_day/EASO/SO2/2011-03-17
 )
 
 urlpatterns += staticfiles_urlpatterns()
