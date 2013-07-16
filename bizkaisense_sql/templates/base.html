@@ -37,7 +37,27 @@
     <body onload="init();">
         <header><!--a href="http://helheim.deusto.es/bizkaisense/"><img src="{{ STATIC_PREFIX }}images/bizkaisense.png" width=250 /></a-->
 <h1><a href="http://helheim.deusto.es/bizkaisense/"><strong class="green">Bizkai</strong><strong class="blue">Sense</strong></a></h1>
-
+<li>
+    <form name="setLangEnglish" action="i18n/setlang/" method="POST">{% csrf_token %}
+        <input name="next" type="hidden" value="/" />
+        <input type="hidden" name="language" value="en" />
+        <a href="#" onclick="document.setLangEnglish.submit();return false;">English</a>
+    </form>
+</li>
+<li>
+    <form name="setLangSpanish" action="i18n/setlang/" method="POST">{% csrf_token %}
+        <input name="next" type="hidden" value="/" />
+        <input type="hidden" name="language" value="es" />
+        <a href="#" onclick="document.setLangSpanish.submit();return false;">Español</a>
+    </form>                
+</li>
+<li>
+    <form name="setLangBasque" action="i18n/setlang/" method="POST">{% csrf_token %}
+        <input name="next" type="hidden" value="/" />
+        <input type="hidden" name="language" value="eu" />
+        <a href="#" onclick="document.setLangBasque.submit();return false;">Basque</a>
+    </form>                
+</li>
 </header>
 
         <div class="container" style="min-height: 600px;">
@@ -52,6 +72,7 @@
   <li id="tit5"><a href="/bizkaisense/docs">{% trans "Documentation" %}</a></li>
                 </ul>
               </div>
+
             </div>
 
             {% block content %}

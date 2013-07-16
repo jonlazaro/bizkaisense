@@ -9,6 +9,12 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
+LANGUAGES = (
+    ('es', 'Spanish'),
+    ('en', 'English'),
+    ('eu', 'Basque'),
+)
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
