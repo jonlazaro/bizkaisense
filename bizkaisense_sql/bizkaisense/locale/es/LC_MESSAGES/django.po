@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-16 10:25+0200\n"
+"POT-Creation-Date: 2013-07-16 11:31+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,11 +50,21 @@ msgstr "Documentación"
 msgid "Data sources"
 msgstr "Fuentes de datos"
 
-#: templates/docs.html:12
+#: templates/docs.html:9
+
+msgid ""
+"\n"
+"Source data extracted from %(start_url)s Basque Government's Environment and "
+"Regional Policy department%(end_url)s.\n"
+msgstr ""
+"\n"
+"Datos originales extraídos desde el %(start_url)s Departamento de Medio Ambiente y Política Territorial del Gobierno Vasco%(end_url)s.\n"
+
+#: templates/docs.html:13
 msgid "Data model"
 msgstr "Modelo de datos"
 
-#: templates/docs.html:14
+#: templates/docs.html:15
 #, python-format
 msgid ""
 "\n"
@@ -62,8 +72,9 @@ msgid ""
 "(%(paper_url)s):\n"
 msgstr ""
 "\n"
-"El proceso de extracción y el modelo de datos se describen en la siguiente publicación "
-"(%(paper_url)s):\n"
+"El proceso de extracción y el modelo de datos se describen en la siguiente "
+"publicación (%(paper_url)s):\n"
+
 #: templates/index.html:14
 msgid ""
 "In this map you can find the air quality monitoring stations from Basque "

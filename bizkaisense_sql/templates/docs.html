@@ -6,8 +6,9 @@
 
 {% block content %}
 <h1 id="centered"><small>{% trans "Data sources" %}</small></h1>
-Datos extraídos de:
-<a href="http://www.ingurumena.ejgv.euskadi.net/r49-n82/es/vima_ai_vigilancia/indice.apl?lenguaje=c" target="_blank">Departamento de Medio Ambiente y Política Territorial del Gobierno Vasco</a>.
+{% blocktrans with '<a href="http://www.ingurumena.ejgv.euskadi.net/r49-n82/es/vima_ai_vigilancia/indice.apl?lenguaje=c" target="_blank">' as start_url and '</a>' as end_url %}
+Source data extracted from {{ start_url }} Basque Government's Environment and Regional Policy department{{ end_url }}.
+{% endblocktrans %}
 
 <h1 id="centered"><small>{% trans "Data model" %}</small></h1> 
 <p>

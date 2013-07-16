@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-16 10:25+0200\n"
+"POT-Creation-Date: 2013-07-16 11:31+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -52,11 +52,21 @@ msgstr "Dokumentazioa"
 msgid "Data sources"
 msgstr "Datu iturburuak"
 
-#: templates/docs.html:12
+#: templates/docs.html:9
+#, python-format
+msgid ""
+"\n"
+"Source data extracted from %(start_url)s Basque Government's Environment and "
+"Regional Policy department%(end_url)s.\n"
+msgstr ""
+"\n"
+"Jatorrizko datuak %(start_url)s Eusko Jaurlaritzako Ingurumen eta Lurralde Politika sailetik%(end_url)s aterata.\n"
+
+#: templates/docs.html:13
 msgid "Data model"
 msgstr "Datu modeloa"
 
-#: templates/docs.html:14
+#: templates/docs.html:15
 #, python-format
 msgid ""
 "\n"
@@ -64,8 +74,8 @@ msgid ""
 "(%(paper_url)s):\n"
 msgstr ""
 "\n"
-"Datuen erauzketaren and datu modeloaren deskribapena honako artikuluan aurki ditzakezu "
-"(%(paper_url)s):\n"
+"Datuen erauzketaren and datu modeloaren deskribapena honako artikuluan aurki "
+"ditzakezu (%(paper_url)s):\n"
 
 #: templates/index.html:14
 msgid ""
