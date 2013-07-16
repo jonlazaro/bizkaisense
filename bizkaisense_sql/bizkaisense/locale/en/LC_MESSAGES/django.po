@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-16 11:31+0200\n"
+"POT-Creation-Date: 2013-07-16 12:24+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -79,6 +79,18 @@ msgstr ""
 
 #: templates/index.html:15
 msgid "Click on each station to find its data about air quality:"
+msgstr ""
+
+#: templates/index.html:64
+msgid "Show details"
+msgstr ""
+
+#: templates/index.html:65
+msgid "More information in"
+msgstr ""
+
+#: templates/index.html:65
+msgid "its webpage"
 msgstr ""
 
 #: templates/station.html:24

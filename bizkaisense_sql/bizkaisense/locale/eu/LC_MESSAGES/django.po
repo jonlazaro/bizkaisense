@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-16 11:31+0200\n"
+"POT-Creation-Date: 2013-07-16 12:27+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -60,7 +60,8 @@ msgid ""
 "Regional Policy department%(end_url)s.\n"
 msgstr ""
 "\n"
-"Jatorrizko datuak %(start_url)s Eusko Jaurlaritzako Ingurumen eta Lurralde Politika sailetik%(end_url)s aterata.\n"
+"Jatorrizko datuak %(start_url)s Eusko Jaurlaritzako Ingurumen eta Lurralde "
+"Politika sailetik%(end_url)s aterata.\n"
 
 #: templates/docs.html:13
 msgid "Data model"
@@ -89,6 +90,18 @@ msgstr ""
 msgid "Click on each station to find its data about air quality:"
 msgstr ""
 "Sakatu estazio bakoitzean bere airearen kalitateari buruzko datuak bilatzeko:"
+
+#: templates/index.html:64
+msgid "Show details"
+msgstr "Xehetasun gehiago"
+
+#: templates/index.html:65
+msgid "More information in"
+msgstr "Informazio gehiago bere"
+
+#: templates/index.html:65
+msgid "its webpage"
+msgstr "web orrialdean"
 
 #: templates/station.html:24
 msgid "Select the stat you want to see:"

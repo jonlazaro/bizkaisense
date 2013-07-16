@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-16 11:31+0200\n"
+"POT-Creation-Date: 2013-07-16 12:24+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -51,14 +51,15 @@ msgid "Data sources"
 msgstr "Fuentes de datos"
 
 #: templates/docs.html:9
-
+#, python-format
 msgid ""
 "\n"
 "Source data extracted from %(start_url)s Basque Government's Environment and "
 "Regional Policy department%(end_url)s.\n"
 msgstr ""
 "\n"
-"Datos originales extraídos desde el %(start_url)s Departamento de Medio Ambiente y Política Territorial del Gobierno Vasco%(end_url)s.\n"
+"Datos originales extraídos desde el %(start_url)s Departamento de Medio "
+"Ambiente y Política Territorial del Gobierno Vasco%(end_url)s.\n"
 
 #: templates/docs.html:13
 msgid "Data model"
@@ -86,6 +87,18 @@ msgstr ""
 #: templates/index.html:15
 msgid "Click on each station to find its data about air quality:"
 msgstr "Pincha en las estaciones para buscar sus datos de calidad del aire:"
+
+#: templates/index.html:64
+msgid "Show details"
+msgstr "Mostrar detalles"
+
+#: templates/index.html:65
+msgid "More information in"
+msgstr "Más información en"
+
+#: templates/index.html:65
+msgid "its webpage"
+msgstr "su página web"
 
 #: templates/station.html:24
 msgid "Select the stat you want to see:"

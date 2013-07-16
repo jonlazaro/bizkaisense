@@ -61,8 +61,8 @@
         var contentString = 
           '<div>' +
             '<h4>{{ station.name }}</h4>' +
-            '<a href="/bizkaisense/station/{{ station.id }}">Mostrar detalles</a><br />' +
-            'Más información en <a href="{{ station.url }}" target="_blank">su web</a>.<br />' + 
+            '<a href="/bizkaisense/station/{{ station.id }}">{% trans "Show details" %}</a><br />' +
+            '{% trans "More information in" %} <a href="{{ station.url }}" target="_blank">{% trans "its webpage" %}</a>.<br />' + 
             '<a href="{{ station.uri }}" target="_blank"><figure><img src="{{ STATIC_PREFIX }}images/rdf.png" width="30"/></figure></a>' + 
           '</div>';
 
