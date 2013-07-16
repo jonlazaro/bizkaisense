@@ -5,12 +5,16 @@
 {% get_static_prefix as STATIC_PREFIX %}
 
 {% block content %}
-<h1 id="centered"><small>Fuentes de datos</small></h1>
+<h1 id="centered"><small>{% trans "Data sources" %}</small></h1>
 Datos extraídos de:
 <a href="http://www.ingurumena.ejgv.euskadi.net/r49-n82/es/vima_ai_vigilancia/indice.apl?lenguaje=c" target="_blank">Departamento de Medio Ambiente y Política Territorial del Gobierno Vasco</a>.
 
-<h1 id="centered"><small>Modelo de datos</small></h1> 
-<p>El proceso de extracción y el modelo de datos se describen en la siguiente publicación (<a href="http://ceur-ws.org/Vol-904/paper7.pdf" target="_blank">PDF</a>):</p> <blockquote>
+<h1 id="centered"><small>{% trans "Data model" %}</small></h1> 
+<p>
+{% blocktrans with '<a href="http://ceur-ws.org/Vol-904/paper7.pdf" target="_blank">PDF</a>' as paper_url %}
+Data extration process and data model are described on the following paper ({{ paper_url }}):
+{% endblocktrans %}
+</p> <blockquote>
   <p>Semantic Annotations for Sensor Open Data</p>
   <small>Mikel Emaldi, Jon Lázaro, Unai Aguilera, Oscar Peña, Diego López-de-Ipiña</small>
   <small>Proceedings of the 5th International Workshop on Semantic Sensor Networks (in 11th International Semantic Web Conference 2012) (Boston - EEUU)</small>

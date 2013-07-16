@@ -21,7 +21,7 @@
 
 	      	<div class="span7">
 	    		<form action="{{ station.id }}" method="post">{% csrf_token %}
-				  Selecciona las estadísticas que quieras ver:<br />
+				  {% trans "Select the stat you want to see:" %}<br />
 				  {{ form.date.errors }}
 				<div class="control-group well">
 				  <div class="controls">
@@ -37,13 +37,13 @@
 
 				{% if results %}
 					<div id="chart_div" class="chart_div"></div>
-					{% if limvalueobs %}<b>*Acerca del valor límite:</b> {{ limvalueobs }}.<br /><br />{% endif %}
+					{% if limvalueobs %}<b>{% trans "*About the limit value:" %}</b> {{ limvalueobs }}.<br /><br />{% endif %}
 						<table class="table table-condensed table-striped table-bordered">
 						  	<thead>
 							<tr>
-							    <th>Hora</th>
-							    <th>Medición</th>
-							    <th>RDF</th>
+							    <th>{% trans "Hour" %}</th>
+							    <th>{% trans "Measurement" %}</th>
+							    <th>{% trans "RDF" %}</th>
 						  	</tr>
 							</thead>
 							<tbody>
@@ -57,7 +57,7 @@
 							</tbody>
 						</table>
 				{% else %}
-					<p>Ningún resultado encontrado</p>
+					<p>{% trans "No results found" %}</p>
 				{% endif %}
 	    	</div>
 	  	{% endif %}

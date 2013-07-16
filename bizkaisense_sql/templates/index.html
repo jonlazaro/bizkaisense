@@ -8,11 +8,11 @@
 {% block content %}
   <!--h1>DOWN FOR MAINTENANCE</h1>
   <h3>Sorry for the inconvenience</h3-->
-  <h1 id="centered"><small>Estaciones de medición de calidad del aire</small></h1>
+  <h1 id="centered"><small>{% trans "Air quality monitoring stations" %}</small></h1>
   <section>
   	<div>
-		En este mapa se encuentran geolocalizadas las estaciones de medición de la calidad del aire en la Comunidad Autónoma Vasca.<br/>
-		Pincha en las estaciones para buscar sus datos de calidad del aire:<br/><br/>
+		{% trans "In this map you can find the air quality monitoring stations from Basque Country." %}<br/>
+		{% trans "Click on each station to find its data about air quality:" %}<br/><br/>
 	    	<div id="map_canvas"></div>
 	<br />
   </section>
