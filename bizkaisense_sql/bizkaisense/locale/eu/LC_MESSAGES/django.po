@@ -1,0 +1,128 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-07-16 12:27+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#: templates/404.html:6
+#, fuzzy
+msgid "ERROR 404: Page not found."
+msgstr "404 ERROREA: ezin da orrialdea aurkitu-"
+
+#: templates/500.html:6
+msgid "ERROR 500: Server error."
+msgstr "500 ERROREA: serbitzariaren errorea."
+
+#: templates/base.html:48 templates/index.html:11
+msgid "Air quality monitoring stations"
+msgstr "Airearen kalitatearen estazioak"
+
+#: templates/base.html:49
+msgid "Air quality calculation"
+msgstr "Airearen kalitearen kalkulua"
+
+#: templates/base.html:50
+msgid "SNORQL Endpoint"
+msgstr "SNORQL Endpoint"
+
+#: templates/base.html:51
+msgid "SPARQL Endpoint (POST)"
+msgstr "SPARQL Endpoint (POST)"
+
+#: templates/base.html:52
+#, fuzzy
+msgid "Documentation"
+msgstr "Dokumentazioa"
+
+#: templates/docs.html:8
+msgid "Data sources"
+msgstr "Datu iturburuak"
+
+#: templates/docs.html:9
+#, python-format
+msgid ""
+"\n"
+"Source data extracted from %(start_url)s Basque Government's Environment and "
+"Regional Policy department%(end_url)s.\n"
+msgstr ""
+"\n"
+"Jatorrizko datuak %(start_url)s Eusko Jaurlaritzako Ingurumen eta Lurralde "
+"Politika sailetik%(end_url)s aterata.\n"
+
+#: templates/docs.html:13
+msgid "Data model"
+msgstr "Datu modeloa"
+
+#: templates/docs.html:15
+#, python-format
+msgid ""
+"\n"
+"Data extration process and data model are described on the following paper "
+"(%(paper_url)s):\n"
+msgstr ""
+"\n"
+"Datuen erauzketaren and datu modeloaren deskribapena honako artikuluan aurki "
+"ditzakezu (%(paper_url)s):\n"
+
+#: templates/index.html:14
+msgid ""
+"In this map you can find the air quality monitoring stations from Basque "
+"Country."
+msgstr ""
+"Mapa honetan Euskal Autonomi Erkidegoko airearen kalitatea zaindu eta "
+"kontrolatzeko estazioen geolokalizazioa aurki ditzakezu."
+
+#: templates/index.html:15
+msgid "Click on each station to find its data about air quality:"
+msgstr ""
+"Sakatu estazio bakoitzean bere airearen kalitateari buruzko datuak bilatzeko:"
+
+#: templates/index.html:64
+msgid "Show details"
+msgstr "Xehetasun gehiago"
+
+#: templates/index.html:65
+msgid "More information in"
+msgstr "Informazio gehiago bere"
+
+#: templates/index.html:65
+msgid "its webpage"
+msgstr "web orrialdean"
+
+#: templates/station.html:24
+msgid "Select the stat you want to see:"
+msgstr "Aukeratu ikusi nahi duzun estatistika:"
+
+#: templates/station.html:40
+msgid "*About the limit value:"
+msgstr "*Gehienezko kontzentrazioari buruz:"
+
+#: templates/station.html:44
+msgid "Hour"
+msgstr "Ordua"
+
+#: templates/station.html:45
+msgid "Measurement"
+msgstr "Neurketa"
+
+#: templates/station.html:46
+msgid "RDF"
+msgstr "RDF"
+
+#: templates/station.html:60
+msgid "No results found"
+msgstr "Ez da inolako emaitzarik aurkitu."

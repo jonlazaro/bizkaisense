@@ -8,11 +8,11 @@
 {% block content %}
   <!--h1>DOWN FOR MAINTENANCE</h1>
   <h3>Sorry for the inconvenience</h3-->
-  <h1 id="centered"><small>Estaciones de medición de calidad del aire</small></h1>
+  <h1 id="centered"><small>{% trans "Air quality monitoring stations" %}</small></h1>
   <section>
   	<div>
-		En este mapa se encuentran geolocalizadas las estaciones de medición de la calidad del aire en la Comunidad Autónoma Vasca.<br/>
-		Pincha en las estaciones para buscar sus datos de calidad del aire:<br/><br/>
+		{% trans "In this map you can find the air quality monitoring stations from Basque Country." %}<br/>
+		{% trans "Click on each station to find its data about air quality:" %}<br/><br/>
 	    	<div id="map_canvas"></div>
 	<br />
   </section>
@@ -61,8 +61,8 @@
         var contentString = 
           '<div>' +
             '<h4>{{ station.name }}</h4>' +
-            '<a href="/bizkaisense/station/{{ station.id }}">Mostrar detalles</a><br />' +
-            'Más información en <a href="{{ station.url }}" target="_blank">su web</a>.<br />' + 
+            '<a href="/bizkaisense/station/{{ station.id }}">{% trans "Show details" %}</a><br />' +
+            '{% trans "More information in" %} <a href="{{ station.url }}" target="_blank">{% trans "its webpage" %}</a>.<br />' + 
             '<a href="{{ station.uri }}" target="_blank"><figure><img src="{{ STATIC_PREFIX }}images/rdf.png" width="30"/></figure></a>' + 
           '</div>';
 
