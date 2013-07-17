@@ -1,6 +1,7 @@
 {% load i18n %}
 {% load static %}
 {% get_static_prefix as STATIC_PREFIX %}
+{% get_current_language as LANGUAGE_CODE %}
 
 <!doctype html>
     <!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
@@ -35,30 +36,18 @@
     </head>
 
     <body onload="init();">
-        <header><!--a href="http://helheim.deusto.es/bizkaisense/"><img src="{{ STATIC_PREFIX }}images/bizkaisense.png" width=250 /></a-->
-<h1><a href="http://helheim.deusto.es/bizkaisense/"><strong class="green">Bizkai</strong><strong class="blue">Sense</strong></a></h1>
-<li>
-    <form name="setLangEnglish" action="i18n/setlang/" method="POST">{% csrf_token %}
-        <input name="next" type="hidden" value="/" />
-        <input type="hidden" name="language" value="en" />
-        <a href="#" onclick="document.setLangEnglish.submit();return false;">English</a>
-    </form>
-</li>
-<li>
-    <form name="setLangSpanish" action="i18n/setlang/" method="POST">{% csrf_token %}
-        <input name="next" type="hidden" value="/" />
-        <input type="hidden" name="language" value="es" />
-        <a href="#" onclick="document.setLangSpanish.submit();return false;">Español</a>
-    </form>                
-</li>
-<li>
-    <form name="setLangBasque" action="i18n/setlang/" method="POST">{% csrf_token %}
-        <input name="next" type="hidden" value="/" />
-        <input type="hidden" name="language" value="eu" />
-        <a href="#" onclick="document.setLangBasque.submit();return false;">Basque</a>
-    </form>                
-</li>
-</header>
+        <header>
+            <form class="span1 pull-left" name="setLang" action="i18n/setlang/" method="POST">{% csrf_token %}
+                <select name="language" onchange="document.setLang.submit();return false;">
+                    <option {% if LANGUAGE_CODE == "eu" %}selected{% endif %} value="eu">Euskera</option>
+                    <option {% if LANGUAGE_CODE == "en" %}selected{% endif %} value="en">English</option>
+                    <option {% if LANGUAGE_CODE == "es" %}selected{% endif %} value="es">Español</option>
+                </select>
+                <input name="next" type="hidden" value="/" />
+            </form>
+            <h1 class="text-center"><a href="http://helheim.deusto.es/bizkaisense/"><strong class="green">Bizkai</strong><strong class="blue">Sense</strong></a></h1>
+        </header>
+
 
         <div class="container" style="min-height: 600px;">
 
@@ -68,7 +57,7 @@
   <li id="tit1"><a href="/bizkaisense">{% trans "Air quality monitoring stations" %}</a></li>
   <li id="tit2"><a href="http://energia.deusto.es/BizkaiSenseCA/" target="_blank">{% trans "Air quality calculation" %}</a></li>
   <li id="tit3"><a href="/bizkaisense/endpoint">{% trans "SNORQL Endpoint" %}</a></li>
-  <li id="tit4"><a href="http://helheim.deusto.es/bizkaisense/sparql" target="_blank">{% trans "SPARQL Endpoint (POST)" %}</a></li>
+  <li id="tit4"><a href="http://helheim.deusto.es/bizkaisense/sparql" target="_blank">{% trans "SPARQL Endpoint" %}</a></li>
   <li id="tit5"><a href="/bizkaisense/docs">{% trans "Documentation" %}</a></li>
                 </ul>
               </div>
@@ -103,6 +92,7 @@
         <!--script src="{{ STATIC_PREFIX }}js/modernizr-2.0.6.min.js"></script-->
         <script src="{{ STATIC_PREFIX }}js/ikelin-bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
         <script src="{{ STATIC_PREFIX }}js/jquery.ui.datepicker-es.js"></script>
+
         <script src="{{ STATIC_PREFIX }}js/script.js"></script>
 
         {% block scripts %}
