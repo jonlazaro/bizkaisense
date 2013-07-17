@@ -5,6 +5,9 @@
 {% get_static_prefix as STATIC_PREFIX %}
 
 {% block content %}
+<h1 id="centered"><small>{% trans "Source Code" %}</small></h1>
+<a href="https://github.com/jonlazaro/bizkaisense" target="_blank"><img src="{{ STATIC_PREFIX }}images/github-icon.png" width="25/"> https://github.com/jonlazaro/bizkaisense</a>
+
 <h1 id="centered"><small>{% trans "Data sources" %}</small></h1>
 {% blocktrans with '<a href="http://www.ingurumena.ejgv.euskadi.net/r49-n82/es/vima_ai_vigilancia/indice.apl?lenguaje=c" target="_blank">' as start_url and '</a>' as end_url %}
 Source data extracted from {{ start_url }} Basque Government's Environment and Regional Policy department{{ end_url }}.
