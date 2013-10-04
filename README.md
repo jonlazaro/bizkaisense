@@ -15,7 +15,7 @@ In a last update of the project we have improved the performance of the data gen
 Data included in this repository:
 
 Scripts that get air quality measures of Basque Country from Open Data Euskadi (ODE):
-- The folder pig_sql_generator contains the Pig scripts that get measures from ODE using Hadoop, and store them in a SQL database.
+- The folder sql_generators/pig contains the Pig script that gets measures from ODE using Hadoop, and stores them in a SQL database.
 - The folder sql_generators contains the Python scripts that get measures from ODE and store them in a SQL database.
 - The folder rdf_generators contains the Python scripts that get measures from ODE and create RDF triples based on SSN ontology.
 
