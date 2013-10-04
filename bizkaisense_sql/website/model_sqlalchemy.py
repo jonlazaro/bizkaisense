@@ -6,8 +6,8 @@ Base = declarative_base()
 
 # Many to many relation table
 station_measured_props = Table('StationMeasuredProps', Base.metadata,
-    Column('station_id', Integer, ForeignKey('Stations.id'), primary_key=True),
-    Column('prop_id', Integer, ForeignKey('Properties.id'), primary_key=True)
+    Column('station_id', Integer, ForeignKey('Stations.code'), primary_key=True),
+    Column('prop_id', Integer, ForeignKey('Properties.name'), primary_key=True)
     )
 
 class DataType(Base):
@@ -40,8 +40,8 @@ class TermType(Base):
 class Station(Base):
 	__tablename__ = 'Stations'
 
-	id = Column(Integer, primary_key = True)
-	code = Column(Unicode(10), index=True)
+	id = Column(Integer)
+	code = Column(Unicode(10), index=True, primary_key=True)
 	name = Column(Unicode(50))
 	municipality = Column(Unicode(50))
 	province = Column(Unicode(50))
@@ -71,19 +71,21 @@ class Station(Base):
 		self.uri = uri
 
 class Property(Base):
-	__tablename__ = 'Properties'
+    __tablename__ = 'Properties'
 
-	id = Column(Integer, primary_key = True)
-	ontology_uri = Column(Unicode(400))
-	name = Column(Unicode(50))
-
-	termtype_id = Column(Integer, ForeignKey('TermTypes.id'), nullable = False)
-	termtype = relation(TermType.__name__, backref = backref('termtypes', order_by=id, cascade = 'all,delete'))
-	
-	def __init__(self, ontology_uri, name, termtype):
-		self.ontology_uri = ontology_uri
-		self.name = name
-		self.termtype = termtype
+    id = Column(Integer)
+    ontology_uri = Column(Unicode(400))
+    name = Column(Unicode(50), primary_key = True)
+    unit = Column(Unicode(400))
+    
+    termtype_id = Column(Integer, ForeignKey('TermTypes.id'), nullable = False)
+    termtype = relation(TermType.__name__, backref = backref('termtypes', order_by=id, cascade = 'all,delete'))
+    
+    def __init__(self, ontology_uri, name, unit, termtype):
+        self.ontology_uri = ontology_uri
+        self.name = name
+        self.unit = unit
+        self.termtype = termtype
 
 class Observation(Base):
 	__tablename__ = 'Observations'
@@ -91,25 +93,25 @@ class Observation(Base):
 	id = Column(Integer, primary_key = True)
 	date = Column(DateTime, index = True)
 	value = Column(Unicode(20))
-	uri = Column(Unicode(400))
+	#uri = Column(Unicode(400))
 
-	station_id = Column(Integer, ForeignKey('Stations.id'), nullable = False)
+	station_id = Column(Integer, ForeignKey('Stations.code'), nullable = False)
 	station = relation(Station.__name__, backref = backref('stations', order_by=id, cascade = 'all,delete'))
 
-	prop_id = Column(Integer, ForeignKey('Properties.id'), nullable = False)
+	prop_id = Column(Integer, ForeignKey('Properties.name'), nullable = False)
 	prop = relation(Property.__name__, backref = backref('properties', order_by=id, cascade = 'all,delete'))
 
-	datatype_id = Column(Integer, ForeignKey('Datatypes.id'), nullable = False)
-	datatype = relation(DataType.__name__, backref = backref('datatypes', order_by=id, cascade = 'all,delete'))
+	#datatype_id = Column(Integer, ForeignKey('Datatypes.id'), nullable = False)
+	#datatype = relation(DataType.__name__, backref = backref('datatypes', order_by=id, cascade = 'all,delete'))
 
-	unit_id = Column(Integer, ForeignKey('Units.id'), nullable = False)
-	unit = relation(Unit.__name__, backref = backref('units', order_by=id, cascade = 'all,delete'))
+	#unit_id = Column(Integer, ForeignKey('Units.id'), nullable = False)
+	#unit = relation(Unit.__name__, backref = backref('units', order_by=id, cascade = 'all,delete'))
 
 	def __init__(self, date, value, station, prop, datatype, unit, uri):
 		self.date = date
 		self.value = value
 		self.station = station
 		self.prop = prop
-		self.datatype = datatype
-		self.unit = unit
-		self.uri = uri
+		#self.datatype = datatype
+		#self.unit = unit
+		#self.uri = uri
