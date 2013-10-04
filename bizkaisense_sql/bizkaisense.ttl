@@ -13,6 +13,14 @@
 @prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
 @prefix loc: <http://simile.mit.edu/2005/05/ontologies/location#> .
 
+<> a d2r:Server;
+  rdfs:label "My D2R Server";
+  d2r:baseURI <http://helheim.deusto.es/bizkaisense/>;
+  d2r:vocabularyIncludeInstances true;
+  d2r:autoReloadMapping false;
+  d2r:sparqlTimeout 300;
+  d2r:pageTimeout 5;
+  .
 
 map:database a d2rq:Database;
 	d2rq:jdbcDriver "com.mysql.jdbc.Driver";
