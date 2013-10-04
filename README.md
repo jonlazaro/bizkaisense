@@ -14,19 +14,19 @@ In a last update of the project we have improved the performance of the data gen
 
 Data included in this repository:
 
-*Scripts that get air quality measures of Basque Country from Open Data Euskadi (ODE):
+Scripts that get air quality measures of Basque Country from Open Data Euskadi (ODE):
 - The folder pig_sql_generator contains the Pig scripts that get measures from ODE using Hadoop, and store them in a SQL database.
 - The folder sql_generators contains the Python scripts that get measures from ODE and store them in a SQL database.
 - The folder rdf_generators contains the Python scripts that get measures from ODE and create RDF triples based on SSN ontology.
 
-*Django websites:
+Django websites:
 - The folder bizkaisense_sql contains the SQL-based website.
 - The folder bizkaisense_sparql contains the SPARQL-based website (low performance with high volume of data).
 
-*D2R mapping:
-- The "bizkaisense.ttl" file contains the mapping used for the conversion from SQL to RDF.
+D2R mapping:
+- The "bizkaisense_sql/bizkaisense.ttl" file contains the mapping used for the conversion from SQL to RDF.
 
-*Slides:
+Slides:
 - The slides folder contains a presentation explaining the details of the project (spanish).
 
 
