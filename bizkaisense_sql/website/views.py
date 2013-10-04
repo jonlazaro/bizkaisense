@@ -64,14 +64,12 @@ def index(request):
 	details["stations"] = stations
 
 	dbstations = session.query(Station).all()
-
 	for st in dbstations:
 		if len(st.properties) > 0:
 			station = {}
 			station["lat"] = st.lat
 			station["lng"] = st.lng
 			station["url"] = st.url
-
 			'''station["url"] = station["url"].replace('%3F', '?')
 			station["url"] = station["url"].replace('%3D', '=')
 			station["url"] = station["url"].replace('%40', '@')
@@ -148,7 +146,7 @@ def station(request, stid):
 	observations = session.query(Observation).join(Station).join(Property).filter(Station.code == stid, Observation.date.between(startdt, enddt), Property.ontology_uri == obstype).all()
 
 	results = []
-
+	
 	details["obstype"] = session.query(Property).filter_by(ontology_uri=obstype).first().name
 
 	for res in observations:
@@ -157,7 +155,7 @@ def station(request, stid):
 		med["uri"] = st.uri + '/' + details["obstype"] + '/' + res.date.isoformat()
 		med["date"] = res.date
 		med["value"] = res.value
-		med["obsunit"] = res.unit.uri.split('#')[1] if res.unit.uri.find('#') != -1 else res.unit.uri.split('/')[-1]
+		med["obsunit"] = res.prop.unit.split('#')[1] if res.prop.unit.find('#') != -1 else res.prop.unit.split('/')[-1]
 		#med["obsunit"] = res['value']['value'][len(med["value"])+1:]
 		#med["obsunit"] = '%' if med["obsunit"] == 'percent' else med["obsunit"]
 		if med["value"] != '-1':

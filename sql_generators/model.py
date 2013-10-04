@@ -40,8 +40,8 @@ class TermType(Base):
 class Station(Base):
 	__tablename__ = 'Stations'
 
-	id = Column(Integer, primary_key = True)
-	code = Column(Unicode(10), index=True)
+	id = Column(Integer)
+	code = Column(Unicode(10), index=True, primary_key=True)
 	name = Column(Unicode(50))
 	municipality = Column(Unicode(50))
 	province = Column(Unicode(50))
