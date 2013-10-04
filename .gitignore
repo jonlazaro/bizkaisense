@@ -44,3 +44,4 @@ nosetests.xml
 .hgignore
 
 bizkaisense_sql/bizkaisense/database_config.py
+bizkaisense_sql/bizkaisense_prod.ttl
