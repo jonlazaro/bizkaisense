@@ -13,30 +13,38 @@
 @prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
 @prefix loc: <http://simile.mit.edu/2005/05/ontologies/location#> .
 
+@prefix d2r: <http://sites.wiwiss.fu-berlin.de/suhl/bizer/d2r-server/config.rdf#> .
+@prefix meta: <http://www4.wiwiss.fu-berlin.de/bizer/d2r-server/metadata#> .
+
 <> a d2r:Server;
-  rdfs:label "My D2R Server";
-  d2r:baseURI <http://helheim.deusto.es/bizkaisense/>;
-  d2r:vocabularyIncludeInstances true;
-  d2r:autoReloadMapping false;
-  d2r:sparqlTimeout 300;
-  d2r:pageTimeout 5;
-  .
+	rdfs:label "My D2R Server";
+	d2r:baseURI <http://helheim.deusto.es/bizkaisense/>;
+	d2r:vocabularyIncludeInstances true;
+	d2r:autoReloadMapping false;
+	d2r:sparqlTimeout 300;
+	d2r:pageTimeout 5;
+	.
 
 map:database a d2rq:Database;
 	d2rq:jdbcDriver "com.mysql.jdbc.Driver";
-	d2rq:jdbcDSN "jdbc:mysql://localhost/bizkaisense";
-	d2rq:username "root";
-	d2rq:password "mysql";
+	d2rq:jdbcDSN "jdbc:mysql://127.0.0.1/bizkaisense";
+	d2rq:username "";
+	d2rq:password "";
 	jdbc:autoReconnect "true";
 	jdbc:zeroDateTimeBehavior "convertToNull";
-	.
+        jdbc:keepAlive "18000";
+        jdbc:keepAliveQuery "SELECT 1";
+        .
+
+map:Configuration a d2rq:Configuration;
+        d2rq:useAllOptimizations true .
 
 # Table Observations
 map:Observations a d2rq:ClassMap;
 	d2rq:dataStorage map:database;
-    d2rq:join "Observations.station_id => Stations.code";
-    d2rq:join "Observations.prop_id => Properties.name";
-    d2rq:uriPattern "station/@@Stations.code@@/@@Properties.name@@/@@Observations.date|urlencode@@";
+	d2rq:join "Observations.station_id => Stations.code";
+	d2rq:join "Observations.prop_id => Properties.name";
+	d2rq:uriPattern "station/@@Stations.code@@/@@Properties.name@@/@@Observations.date|urlencode@@";
 	d2rq:class ssn:Observation;
 	#d2rq:classDefinitionLabel "Observations";
 	.
@@ -49,8 +57,8 @@ map:Observations_station a d2rq:PropertyBridge;
 map:Observations__label a d2rq:PropertyBridge;
 	d2rq:belongsToClassMap map:Observations;
 	d2rq:property rdfs:label;
-    d2rq:join "Observations.station_id => Stations.code";
-    d2rq:join "Observations.prop_id => Properties.name";
+	d2rq:join "Observations.station_id => Stations.code";
+	d2rq:join "Observations.prop_id => Properties.name";
 	d2rq:pattern "[Observation] @@Properties.name@@ at @@Stations.code@@ on @@Observations.date@@";
 	.
 #map:Observations_id a d2rq:PropertyBridge;
@@ -99,18 +107,18 @@ map:Observations_sensorOutput a d2rq:PropertyBridge;
 
 # Observation_SensorOutputs
 map:Observation_sensorOutputs a d2rq:ClassMap;
-    d2rq:dataStorage map:database;
-#   d2rq:uriPattern "@@Observations.uri@@/sensoroutput";
-    d2rq:join "Observations.station_id => Stations.code";
-    d2rq:join "Observations.prop_id => Properties.name";
+	d2rq:dataStorage map:database;
+#	d2rq:uriPattern "@@Observations.uri@@/sensoroutput";
+	d2rq:join "Observations.station_id => Stations.code";
+	d2rq:join "Observations.prop_id => Properties.name";
 	d2rq:uriPattern "station/@@Stations.code@@/@@Properties.name@@/@@Observations.date|urlencode@@/sensoroutput";
-    d2rq:class ssn:SensorOutput;
+	d2rq:class ssn:SensorOutput;
 	.
 map:Observation_sensorOutputs_hasValue a d2rq:PropertyBridge;
-    d2rq:belongsToClassMap map:Observation_sensorOutputs;
-    d2rq:property ssn:hasValue;
-    d2rq:refersToClassMap map:Observation_outputValues;
-    .
+	d2rq:belongsToClassMap map:Observation_sensorOutputs;
+	d2rq:property ssn:hasValue;
+	d2rq:refersToClassMap map:Observation_outputValues;
+	.
 
 # Observation_OutputValues
 map:Observation_outputValues a d2rq:ClassMap;
@@ -125,8 +133,8 @@ map:Observation_outputValues_hasdatavalue a d2rq:PropertyBridge;
         d2rq:belongsToClassMap map:Observation_outputValues;
         d2rq:property dul:hasDataValue;
 #	d2rq:join "Observations.datatype_id => Datatypes.id";
-	    d2rq:pattern "@@Observations.value@@";
-	    d2rq:datatype xsd:float;
+	d2rq:pattern "@@Observations.value@@";
+	d2rq:datatype xsd:float;
         .
 map:Observation_outputValues_classifiedby a d2rq:PropertyBridge;
         d2rq:belongsToClassMap map:Observation_outputValues;
@@ -156,10 +164,10 @@ map:Stations__label a d2rq:PropertyBridge;
 #	d2rq:datatype xsd:integer;
 #	.
 map:Stations__description a d2rq:PropertyBridge;
-    d2rq:belongsToClassMap map:Stations;
-    d2rq:property dc:description;
-    d2rq:pattern "@@Stations.name@@ (@@Stations.code@@) @ @@Stations.municipality@@ (@@Stations.province@@)";
-    .
+	d2rq:belongsToClassMap map:Stations;
+	d2rq:property dc:description;
+	d2rq:pattern "@@Stations.name@@ (@@Stations.code@@) @ @@Stations.municipality@@ (@@Stations.province@@)";
+	.
 map:Stations_code a d2rq:PropertyBridge;
 	d2rq:belongsToClassMap map:Stations;
 	d2rq:property dc:identifier;
@@ -221,17 +229,17 @@ map:Stations_geonames a d2rq:PropertyBridge;
 #	d2rq:column "Stations.uri";
 #	.
 map:Stations_point a d2rq:PropertyBridge;
-    d2rq:belongsToClassMap map:Stations;
-    d2rq:property dul:hasLocation;
+	d2rq:belongsToClassMap map:Stations;
+	d2rq:property dul:hasLocation;
 	d2rq:uriPattern "station/@@Stations.code@@/point";
-    .
+	.
 map:Stations_properties a d2rq:PropertyBridge;
-    d2rq:belongsToClassMap map:Stations;
-    d2rq:property ssn:observes;
-    d2rq:join "Stations.id => StationMeasuredProps.station_id";
-    d2rq:join "StationMeasuredProps.prop_id => Properties.name";
+	d2rq:belongsToClassMap map:Stations;
+	d2rq:property ssn:observes;
+	d2rq:join "Stations.id => StationMeasuredProps.station_id";
+	d2rq:join "StationMeasuredProps.prop_id => Properties.name";
 	d2rq:uriColumn "Properties.ontology_uri";
-    .
+	.
 
 # Station point
 map:Station_points a d2rq:ClassMap;
