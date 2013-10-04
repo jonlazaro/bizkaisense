@@ -1,5 +1,5 @@
 # Django settings for bizkaisense project.
-from database_config import databases
+from database_config import databases, connection_string
 import os
 
 DEBUG = True
@@ -146,3 +146,5 @@ LOGGING = {
         },
     }
 }
+
+DATABASE_CONNECTION_STRING = connection_string
