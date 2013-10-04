@@ -19,7 +19,7 @@ from sqlalchemy import create_engine, func
 from sqlalchemy.orm import sessionmaker, aliased
 from sqlalchemy.sql.expression import alias
 
-SQLALCHEMY_ENGINE_STR = 'mysql://root:mysql@localhost/bizkaisense'
+SQLALCHEMY_ENGINE_STR = 'mysql://bizkaisense:bizkaisense@127.0.0.1/air_quality'
 engine = create_engine(SQLALCHEMY_ENGINE_STR, convert_unicode=True, pool_recycle=3600)
 Session = sessionmaker(bind = engine)
 
