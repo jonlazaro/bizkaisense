@@ -46,3 +46,4 @@ nosetests.xml
 bizkaisense_sql/bizkaisense/database_config.py
 bizkaisense.sublime-project
 bizkaisense.sublime-workspace
+bizkaisense_sql/bizkaisense_prod.ttl
