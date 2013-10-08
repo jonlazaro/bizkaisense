@@ -236,14 +236,28 @@ def api_outlimit_stations(request, propid, startdate, enddate, limit):
 
     resp = []
     for obs in observations:
-            o = {}
-            o['lat'] = obs[2]
-            o['lng'] = obs[3]
-            o['date'] = obs[4].isoformat()
-            o['municipality'] = obs[1]
-    o['value'] = obs[0]
-    esp.append(o)
+        o = {}
+        o['lat'] = obs[2]
+        o['lng'] = obs[3]
+        o['date'] = obs[4].isoformat()
+        o['municipality'] = obs[1]
+        o['value'] = obs[0]
+        resp.append(o)
 
     session.close()
     #return response
     return resp
+
+@json_response
+def api_all_stations(request):
+    session = Session()
+    stations = []
+    for st in session.query(Station).all():
+        st_dict = {}
+        st_dict['code'] = st.code
+        st_dict['name'] = st.name
+        st_dict['lat'] = st.lat
+        st_dict['lng'] = st.lng
+        st_dict['properties'] = [prop.name for prop in st.properties]
+        stations.append(st_dict)
+    return stations
