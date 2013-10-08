@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, Unicode, Float, DateTime, ForeignKey, UniqueConstraint, Boolean, Table
+from sqlalchemy import Column, Integer, Unicode, DateTime, ForeignKey, Table
 from sqlalchemy.orm import relation, backref
 from sqlalchemy.ext.declarative import declarative_base
 
@@ -77,10 +77,10 @@ class Property(Base):
     ontology_uri = Column(Unicode(400))
     name = Column(Unicode(50), primary_key = True)
     unit = Column(Unicode(400))
-    
+
     termtype_id = Column(Integer, ForeignKey('TermTypes.id'), nullable = False)
     termtype = relation(TermType.__name__, backref = backref('termtypes', order_by=id, cascade = 'all,delete'))
-    
+
     def __init__(self, ontology_uri, name, unit, termtype):
         self.ontology_uri = ontology_uri
         self.name = name
