@@ -44,3 +44,5 @@ nosetests.xml
 .hgignore
 
 bizkaisense_sql/bizkaisense/database_config.py
+bizkaisense.sublime-project
+bizkaisense.sublime-workspace
