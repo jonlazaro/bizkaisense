@@ -1,5 +1,6 @@
 from django.conf.urls.defaults import patterns, include, url
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.http import HttpResponse
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
@@ -23,6 +24,7 @@ urlpatterns = patterns('',
     url(r'^api/outlimit_stations/(?P<propid>\w+)/(?P<startdate>\d{4}\-\d{2}\-\d{2})/(?P<enddate>\d{4}\-\d{2}\-\d{2})/(?P<limit>\d+\.?\d*)$', 'website.views.api_outlimit_stations'),
     url(r'^api/all_stations$', 'website.views.api_all_stations'),
     (r'^i18n/', include('django.conf.urls.i18n')),
+    (r'^robots\.txt$', lambda r: HttpResponse("User-agent: *\nDisallow: /", mimetype="text/plain")),
     #api/obs_day/EASO/SO2/2011-03-17
 )
 
