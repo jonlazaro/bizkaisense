@@ -1,0 +1,21 @@
+Stations
+=========
+ 
+sqoop-export --connect jdbc:mysql://helheim/bizkaisense --export-dir bizkaisense/stations --table Stations --username root -P --columns id,code
+ 
+ 
+Properties
+===========
+sqoop-export --connect jdbc:mysql://helheim/bizkaisense --export-dir bizkaisense/properties --table Properties --username root -P --columns id,name,ontology_uri,unit
+ 
+ 
+Observations
+============
+ 
+sqoop-export --connect jdbc:mysql://helheim/bizkaisense --export-dir bizkaisense/observations --table Observations --username root -P --columns id,date,value,station_id,prop_id
+ 
+ 
+StationMeasuredProps
+=====================
+ 
+sqoop-export --connect jdbc:mysql://helheim/bizkaisense --export-dir bizkaisense/stationMeasuredProps --table StationMeasuredProps --username root -P
