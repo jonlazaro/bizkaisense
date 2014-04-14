@@ -19,3 +19,15 @@ StationMeasuredProps
 =====================
  
 sqoop-export --connect jdbc:mysql://helheim/bizkaisense --export-dir bizkaisense/stationMeasuredProps --table StationMeasuredProps --username root -P
+
+
+WaterSource
+===========
+
+sqoop-export --connect jdbc:mysql://helheim/bizkaisense --export-dir bizkaisense/aguas/output/origenes --table WaterSource --username root -P
+
+
+WaterSample
+===========
+
+sqoop-export --connect jdbc:mysql://helheim/bizkaisense --export-dir bizkaisense/aguas/output/datos --table WaterSample --username root -P

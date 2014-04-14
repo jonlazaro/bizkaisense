@@ -115,3 +115,82 @@ class Observation(Base):
 		#self.datatype = datatype
 		#self.unit = unit
 		#self.uri = uri
+
+'''class WaterZone(Base):
+	__tablename__ = 'WaterZone'
+
+	id = Column(Integer, primary_key = True)
+	zona = Column(Unicode(50))
+
+	def __init__(self, zona):
+		self.zona = zona'''
+
+
+class WaterSample(Base):
+	__tablename__ = 'WaterSample'
+
+	id = Column(Integer, primary_key = True)
+
+	fecha = Column(DateTime, index = True)
+	parametro = Column(Unicode(50))
+	provincia = Column(Unicode(50))
+	municipio = Column(Unicode(50))
+	localidad = Column(Unicode(50))
+	zona = Column(Unicode(50))
+	punto_muestreo = Column(Unicode(50))
+	tipo_punto = Column(Unicode(50))
+	laboratorio = Column(Unicode(50))
+	elemento = Column(Unicode(50))
+	tipo_analisis = Column(Unicode(50))
+	motivo = Column(Unicode(50))
+	calificacion = Column(Unicode(50))
+	resultado = Column(Unicode(50))
+	valor_parametrico = Column(Unicode(50))
+	unidad = Column(Unicode(50))
+
+	def __init__(self, fecha, parametro, provincia, municipio, localidad, zona, punto_muestreo, tipo_punto, laboratorio, elemento, tipo_analisis, motivo, calificacion, resultado, valor_parametrico, unidad):
+
+		self.fecha = fecha
+		self.parametro = parametro
+		self.provincia = provincia
+		self.municipio = municipio
+		self.localidad = localidad
+		self.zona = zona
+		self.punto_muestreo = punto_muestreo
+		self.tipo_punto = tipo_punto
+		self.laboratorio = laboratorio
+		self.elemento = elemento,
+		self.tipo_analisis = tipo_analisis
+		self.motivo = motivo
+		self.calificacion = calificacion
+		self.resultado = resultado
+		self.valor_parametrico = valor_parametrico
+		self.unidad = unidad;
+
+class WaterSource(Base):
+	__tablename__ = 'WaterSource'
+
+	id = Column(Integer, primary_key = True)
+
+	provincia = Column(Unicode(50))
+	municipio = Column(Unicode(50))
+	localidad = Column(Unicode(50))
+	zona = Column(Unicode(50))
+	latitud = Column(Unicode(15))
+	longitud = Column(Unicode(15))
+	altitud = Column(Unicode(15))
+	tipo_elemento = Column(Unicode(50))
+	captacion = Column(Unicode(50))
+	fluoracion = Column(Unicode(15))
+
+	def __init__(self, provincia, municipio, localidad, zona, latitud, longitud, altitud, tipo_elemento, captacion, fluoracion):
+		self.provincia = provincia
+		self.municipio = municipio
+		self.localidad = localidad
+		self.zona = zona
+		self.latitud = latitud
+		self.longitud = longitud
+		self.altitud = altitud
+		self.tipo_elemento = tipo_elemento
+		self.captacion = captacion
+		self.fluoracion = fluoracion

@@ -5,7 +5,7 @@ from sqlalchemy.orm import sessionmaker
 
 from model import *
 
-SQLALCHEMY_ENGINE_STR = 'mysql://bizkaisense:bizkaisense@127.0.0.1/air_quality'
+SQLALCHEMY_ENGINE_STR = 'mysql://root:mysql@127.0.0.1/bizkaisense'
 #SQLALCHEMY_ENGINE_STR = 'sqlite:///bizkaisense.db'
 
 engine = create_engine(SQLALCHEMY_ENGINE_STR, convert_unicode=True, pool_recycle=3600)
