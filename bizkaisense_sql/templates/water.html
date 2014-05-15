@@ -6,10 +6,22 @@
 
 {% block content %}
     <h1>{{ zona }}</h1>
-
+    <form class="form-inline" method="post">{% csrf_token %}
+        <label class="control-label" for="parametro"><b>Parametro</b> </label>
+        <select name="parametro" id="parametro">
+            {% for parametro in parametros %}
+                {% if parametro.0 == parametro_select.0 %}
+                    <option value="{{parametro.0}}" selected="selected">{{ parametro.1 }}</option>
+                {% else %}
+                    <option value="{{parametro.0}}">{{ parametro.1 }}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+        <input type="submit" class="btn" value="Submit" />
+    </form>
     <table class="table table-striped">
         <thead>
-            <tr><th colspan="8">{{parametro}}</th>
+            <tr><th colspan="8">{{parametro_select.1}}</th>
             </tr>
             <tr>
                 <th>Fecha</th>

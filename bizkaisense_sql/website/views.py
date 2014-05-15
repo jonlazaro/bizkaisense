@@ -187,43 +187,47 @@ def station(request, stid):
     return render_to_response('station.html', details, context_instance=RequestContext(request))
 
 def water(request, stid):
-    if 'POST' in request:
-        pass
+    session = Session()
+    details = {}
+    details['id'] = stid
+    details['parametros'] = []
+    water_source = session.query(WaterSource).filter_by(id=stid).first()
+
+    for parametro in session.query(WaterSample.parametro).filter_by(zona=water_source.zona).distinct():
+        details['parametros'].append((parametro[0], parametro[0].replace('_', ',')))
+
+    if request.POST:
+        print request.POST
+        parametro = request.POST['parametro']
     else:
-        session = Session()
-        details = {}
+        parametro = details['parametros'][0][0]
 
-        water_source = session.query(WaterSource).filter_by(id=stid).first()
+    details['zona'] = water_source.zona
 
-        details['zona'] = water_source.zona
-        details['parametros'] = []
-        details['years'] = []
-        details['samples'] = []
+    details['years'] = []
+    details['samples'] = []
 
-        related_sources = session.query(WaterSource).filter_by(zona=water_source.zona)
-        water_samples = session.query(WaterSample).filter_by(zona=water_source.zona, parametro='1_1_2_2-TETRACLOROETENO')
+    related_sources = session.query(WaterSource).filter_by(zona=water_source.zona)
+    water_samples = session.query(WaterSample).filter_by(zona=water_source.zona, parametro=parametro)
 
-        for ws in water_samples:
-            sample_dict = {}
-            sample_dict['municipio'] = ws.municipio
-            sample_dict['punto_muestreo'] = ws.punto_muestreo
-            sample_dict['tipo_punto'] = ws.tipo_punto
-            sample_dict['laboratorio'] = ws.laboratorio
-            sample_dict['motivo'] = ws.motivo
-            sample_dict['calificacion'] = ws.calificacion
-            sample_dict['resultado'] = ws.resultado
-            sample_dict['fecha'] = ws.fecha
-            print ws.fecha, ws.punto_muestreo, ws.parametro, ws.resultado, ws.municipio
-            # if ws.parametro not in details['parametros']:
-            #     details['parametros'].append(ws.parametro)
-            if ws.fecha.year not in details['years']:
-                details['years'].append(ws.fecha.year)
+    for ws in water_samples:
+        sample_dict = {}
+        sample_dict['municipio'] = ws.municipio
+        sample_dict['punto_muestreo'] = ws.punto_muestreo
+        sample_dict['tipo_punto'] = ws.tipo_punto
+        sample_dict['laboratorio'] = ws.laboratorio
+        sample_dict['motivo'] = ws.motivo
+        sample_dict['calificacion'] = ws.calificacion
+        sample_dict['resultado'] = ws.resultado.replace('_', ',')
+        sample_dict['fecha'] = ws.fecha
+        if ws.fecha.year not in details['years']:
+            details['years'].append(ws.fecha.year)
 
-            details['unidad'] = ws.unidad
-            details['samples'].append(sample_dict)
-            details['parametro'] = ws.parametro.replace('_', '-')
+        details['unidad'] = ws.unidad
+        details['samples'].append(sample_dict)
+        details['parametro_select'] = (ws.parametro, ws.parametro.replace('_', ','))
 
-        return render_to_response('water.html', details, context_instance=RequestContext(request))
+    return render_to_response('water.html', details, context_instance=RequestContext(request))
 
 
 @json_response
