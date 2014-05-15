@@ -202,7 +202,10 @@ def water(request, stid):
         year = int(request.POST['year'])
     else:
         year = 2013
-        parametro = details['parametros'][0][0]
+        if len(details['parametros']) > 0:
+            parametro = details['parametros'][0][0]
+        else:
+            parametro = ''
 
     details['selected_year'] = year
     details['zona'] = water_source.zona
@@ -211,7 +214,7 @@ def water(request, stid):
     details['samples'] = []
 
     related_sources = session.query(WaterSource).filter_by(zona=water_source.zona)
-    water_samples = session.query(WaterSample).filter_by(zona=water_source.zona, parametro=parametro).filter(and_(WaterSample.fecha >= '%s-01-01' % year, WaterSample.fecha <= '%s-12-31' % year))
+    water_samples = session.query(WaterSample).filter_by(zona=water_source.zona, parametro=parametro).filter(and_(WaterSample.fecha >= '%s-01-01' % year, WaterSample.fecha <= '%s-12-31' % year)).order_by(WaterSample.fecha)
 
     for ws in water_samples:
         sample_dict = {}
