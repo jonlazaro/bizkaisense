@@ -45,7 +45,15 @@
         </thead>
         <tbody>
             {% for sample in samples %}
-                <tr>
+                {% if sample.calificacion == 'Apta para el consumo' or sample.calificacion == 'Cumple con los valores paramétricos del RD 140/2003' %}
+                    <tr class="success">
+                {% elif sample.calificacion == 'No apta para el consumo' or sample.calificacion == 'Incumple parametros/indicadores del RD 140/2003' %}
+                    <tr class="error">
+                {% elif sample.calificacion == 'Sin calificación' %}
+                    <tr class="warning">
+                {% else %}
+                    <tr>
+                {% endif %}
                     <td>{{sample.fecha}}</td>
                     <td>{{ sample.municipio|lower|capfirst }}</td>
                     <td>{{ sample.punto_muestreo }}</td>
