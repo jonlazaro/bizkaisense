@@ -193,15 +193,18 @@ def water(request, stid):
     details['parametros'] = []
     water_source = session.query(WaterSource).filter_by(id=stid).first()
 
-    for parametro in session.query(WaterSample.parametro).filter_by(zona=water_source.zona).distinct():
+    for parametro in session.query(WaterSample.parametro).filter_by(zona=water_source.zona).distinct().order_by(WaterSample.parametro):
         details['parametros'].append((parametro[0], parametro[0].replace('_', ',')))
 
     if request.POST:
         print request.POST
         parametro = request.POST['parametro']
+        year = int(request.POST['year'])
     else:
+        year = 2013
         parametro = details['parametros'][0][0]
 
+    details['selected_year'] = year
     details['zona'] = water_source.zona
 
     details['years'] = []

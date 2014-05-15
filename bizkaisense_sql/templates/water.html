@@ -17,6 +17,15 @@
                 {% endif %}
             {% endfor %}
         </select>
+        <select name="year" id="year">
+            {% for year in years %}
+                {% if year == selected_year %}
+                    <option value="{{year}}" selected="selected">{{year}}</option>
+                {% else %}
+                    <option value="{{year}}">{{year}}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
         <input type="submit" class="btn" value="Submit" />
     </form>
     <table class="table table-striped">
