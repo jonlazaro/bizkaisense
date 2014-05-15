@@ -106,6 +106,7 @@
         var contentString =
           '<div>' +
             '<h4>{{ ws.zona }} ({{ ws.captacion }})</h4>' +
+            '<a href="/water/{{ ws.id }}">{% trans "Show details" %}</a><br />' +
           '</div>';
 
         testData.data.push({ "lat": {{ ws.lat }}, "lon": {{ ws.lng }}});
@@ -126,7 +127,7 @@
         feature.data.popupContentHTML = popupContentHTML;
         feature.data.overflow = "auto";
 
-        feature.data.icon = new OpenLayers.Icon('{{ STATIC_PREFIX }}/images/wind.png', size, offset);
+        feature.data.icon = new OpenLayers.Icon('{{ STATIC_PREFIX }}/images/waterdrop.png', size, offset);
 
         var marker = feature.createMarker();
         marker.defaultIcon = icon.clone();

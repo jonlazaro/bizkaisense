@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
+
+{% block content %}
+    <h1>{{ zona }}</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr><th colspan="8">{{parametro}}</th>
+            </tr>
+            <tr>
+                <th>Fecha</th>
+                <th>Municipio</th>
+                <th>Punto de muestreo</th>
+                <th>Tipo de punto</th>
+                <th>Laboratorio</th>
+                <th>Motivo</th>
+                <th>Calificación</th>
+                <th>Resultado ({{ unidad }})</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for sample in samples %}
+                <tr>
+                    <td>{{sample.fecha}}</td>
+                    <td>{{ sample.municipio|lower|capfirst }}</td>
+                    <td>{{ sample.punto_muestreo }}</td>
+                    {% if sample.tipo_punto == None %}
+                        <td>-</td>
+                    {% else %}
+                        <td>{{ sample.tipo_punto }}</td>
+                    {% endif %}
+                    <td>{{ sample.laboratorio|lower|capfirst }}</td>
+                    <td>{{ sample.motivo }}</td>
+                    <td>{{ sample.calificacion }}</td>
+                    <td>{{ sample.resultado }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

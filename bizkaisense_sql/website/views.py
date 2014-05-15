@@ -186,6 +186,46 @@ def station(request, stid):
     session.close()
     return render_to_response('station.html', details, context_instance=RequestContext(request))
 
+def water(request, stid):
+    if 'POST' in request:
+        pass
+    else:
+        session = Session()
+        details = {}
+
+        water_source = session.query(WaterSource).filter_by(id=stid).first()
+
+        details['zona'] = water_source.zona
+        details['parametros'] = []
+        details['years'] = []
+        details['samples'] = []
+
+        related_sources = session.query(WaterSource).filter_by(zona=water_source.zona)
+        water_samples = session.query(WaterSample).filter_by(zona=water_source.zona, parametro='1_1_2_2-TETRACLOROETENO')
+
+        for ws in water_samples:
+            sample_dict = {}
+            sample_dict['municipio'] = ws.municipio
+            sample_dict['punto_muestreo'] = ws.punto_muestreo
+            sample_dict['tipo_punto'] = ws.tipo_punto
+            sample_dict['laboratorio'] = ws.laboratorio
+            sample_dict['motivo'] = ws.motivo
+            sample_dict['calificacion'] = ws.calificacion
+            sample_dict['resultado'] = ws.resultado
+            sample_dict['fecha'] = ws.fecha
+            print ws.fecha, ws.punto_muestreo, ws.parametro, ws.resultado, ws.municipio
+            # if ws.parametro not in details['parametros']:
+            #     details['parametros'].append(ws.parametro)
+            if ws.fecha.year not in details['years']:
+                details['years'].append(ws.fecha.year)
+
+            details['unidad'] = ws.unidad
+            details['samples'].append(sample_dict)
+            details['parametro'] = ws.parametro.replace('_', '-')
+
+        return render_to_response('water.html', details, context_instance=RequestContext(request))
+
+
 @json_response
 def api_obs_day(request, stid, propid, date):
     session = Session()
