@@ -84,6 +84,19 @@ def index(request):
 
             stations.append(station)
 
+    water_sources_list = []
+    details["water_sources"] = water_sources_list
+    water_sources = session.query(WaterSource).all()
+    for ws in water_sources:
+        water_source = {}
+        water_source["lat"] = ws.latitud
+        water_source["lng"] = ws.longitud
+        water_source["id"] = ws.id
+        water_source["zona"] = ws.zona
+        water_source["captacion"] = ws.captacion
+
+        water_sources_list.append(water_source)
+
     session.close()
     return render_to_response('index.html', details, context_instance=RequestContext(request))
 
