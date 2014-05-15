@@ -16,7 +16,7 @@ from model_sqlalchemy import *
 
 from website.forms import *
 
-from sqlalchemy import create_engine, func
+from sqlalchemy import create_engine, func, and_
 from sqlalchemy.orm import sessionmaker, aliased
 from sqlalchemy.sql.expression import alias
 
@@ -211,7 +211,7 @@ def water(request, stid):
     details['samples'] = []
 
     related_sources = session.query(WaterSource).filter_by(zona=water_source.zona)
-    water_samples = session.query(WaterSample).filter_by(zona=water_source.zona, parametro=parametro)
+    water_samples = session.query(WaterSample).filter_by(zona=water_source.zona, parametro=parametro).filter(and_(WaterSample.fecha >= '%s-01-01' % year, WaterSample.fecha <= '%s-12-31' % year))
 
     for ws in water_samples:
         sample_dict = {}
