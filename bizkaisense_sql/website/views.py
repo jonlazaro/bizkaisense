@@ -200,17 +200,18 @@ def water(request, stid):
     else:
         year = 2013
 
-    for parametro in session.query(WaterSample.parametro).filter_by(zona=water_source.zona).filter(and_(WaterSample.fecha >= '%s-01-01' % year, WaterSample.fecha <= '%s-12-31' % year)).distinct().order_by(WaterSample.parametro):
+    for parametro in session.query(WaterSample.parametro).filter_by(zona=water_source.zona).distinct().order_by(WaterSample.parametro):
         details['parametros'].append((parametro[0], parametro[0].replace('_', ',')))
 
     if request.POST:
         print request.POST
-        parametro = request.POST['parametro']
+        parametro = (request.POST['parametro'], request.POST['parametro'].replace('_', ','))
     else:
         if len(details['parametros']) > 0:
-            parametro = details['parametros'][0][0]
+            parametro = details['parametros'][0]
         else:
             parametro = ''
+    details['parametro_select'] = parametro
 
     details['selected_year'] = year
     details['zona'] = water_source.zona
@@ -219,7 +220,7 @@ def water(request, stid):
     details['samples'] = []
 
     related_sources = session.query(WaterSource).filter_by(zona=water_source.zona)
-    water_samples = session.query(WaterSample).filter_by(zona=water_source.zona, parametro=parametro).filter(and_(WaterSample.fecha >= '%s-01-01' % year, WaterSample.fecha <= '%s-12-31' % year)).order_by(WaterSample.fecha)
+    water_samples = session.query(WaterSample).filter_by(zona=water_source.zona, parametro=parametro[0]).filter(and_(WaterSample.fecha >= '%s-01-01' % year, WaterSample.fecha <= '%s-12-31' % year)).order_by(WaterSample.fecha)
 
     for ws in water_samples:
         sample_dict = {}
@@ -233,10 +234,8 @@ def water(request, stid):
         sample_dict['fecha'] = ws.fecha
         details['unidad'] = ws.unidad
         details['samples'].append(sample_dict)
-        details['parametro_select'] = (ws.parametro, ws.parametro.replace('_', ','))
-    print details['years']
+        #details['parametro_select'] = (ws.parametro, ws.parametro.replace('_', ','))
     return render_to_response('water.html', details, context_instance=RequestContext(request))
-
 
 @json_response
 def api_obs_day(request, stid, propid, date):
