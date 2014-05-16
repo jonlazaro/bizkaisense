@@ -32,6 +32,8 @@ lim_values = {
     'http://sweet.jpl.nasa.gov/2.3/matrElementalMolecule.owl#O3': [180, "Valor medio en 1 hora"],
 }
 
+WATER_YEARS = [2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013]
+
 
 def json_response(func):
     """
@@ -193,15 +195,18 @@ def water(request, stid):
     details['parametros'] = []
     water_source = session.query(WaterSource).filter_by(id=stid).first()
 
-    for parametro in session.query(WaterSample.parametro).filter_by(zona=water_source.zona).distinct().order_by(WaterSample.parametro):
+    if request.POST:
+        year = int(request.POST['year'])
+    else:
+        year = 2013
+
+    for parametro in session.query(WaterSample.parametro).filter_by(zona=water_source.zona).filter(and_(WaterSample.fecha >= '%s-01-01' % year, WaterSample.fecha <= '%s-12-31' % year)).distinct().order_by(WaterSample.parametro):
         details['parametros'].append((parametro[0], parametro[0].replace('_', ',')))
 
     if request.POST:
         print request.POST
         parametro = request.POST['parametro']
-        year = int(request.POST['year'])
     else:
-        year = 2013
         if len(details['parametros']) > 0:
             parametro = details['parametros'][0][0]
         else:
@@ -210,7 +215,7 @@ def water(request, stid):
     details['selected_year'] = year
     details['zona'] = water_source.zona
 
-    details['years'] = []
+    details['years'] = WATER_YEARS
     details['samples'] = []
 
     related_sources = session.query(WaterSource).filter_by(zona=water_source.zona)
@@ -226,13 +231,10 @@ def water(request, stid):
         sample_dict['calificacion'] = ws.calificacion
         sample_dict['resultado'] = ws.resultado.replace('_', ',')
         sample_dict['fecha'] = ws.fecha
-        if ws.fecha.year not in details['years']:
-            details['years'].append(ws.fecha.year)
-
         details['unidad'] = ws.unidad
         details['samples'].append(sample_dict)
         details['parametro_select'] = (ws.parametro, ws.parametro.replace('_', ','))
-
+    print details['years']
     return render_to_response('water.html', details, context_instance=RequestContext(request))
 
 
