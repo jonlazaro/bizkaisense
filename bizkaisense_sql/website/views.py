@@ -219,7 +219,12 @@ def water(request, stid):
     details['years'] = WATER_YEARS
     details['samples'] = []
 
+    details['captaciones'] = []
     related_sources = session.query(WaterSource).filter_by(zona=water_source.zona)
+    for rs in related_sources:
+        captacion = {'provincia': rs.provincia, 'municipio': rs.municipio.replace('_', ','), 'tipo_elemento': rs.tipo_elemento, 'captacion': rs.captacion}
+        details['captaciones'].append(captacion)
+
     water_samples = session.query(WaterSample).filter_by(zona=water_source.zona, parametro=parametro[0]).filter(and_(WaterSample.fecha >= '%s-01-01' % year, WaterSample.fecha <= '%s-12-31' % year)).order_by(WaterSample.fecha)
 
     for ws in water_samples:

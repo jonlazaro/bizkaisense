@@ -6,68 +6,98 @@
 
 {% block content %}
     <h1>{{ zona }}</h1>
-    <form class="form-inline" method="post">{% csrf_token %}
-        <label class="control-label" for="parametro"><b>Parametro</b> </label>
-        <select name="parametro" id="parametro">
-            {% for parametro in parametros %}
-                {% if parametro.0 == parametro_select.0 %}
-                    <option value="{{parametro.0}}" selected="selected">{{ parametro.1 }}</option>
-                {% else %}
-                    <option value="{{parametro.0}}">{{ parametro.1 }}</option>
-                {% endif %}
-            {% endfor %}
-        </select>
-        <select name="year" id="year">
-            {% for year in years %}
-                {% if year == selected_year %}
-                    <option value="{{year}}" selected="selected">{{year}}</option>
-                {% else %}
-                    <option value="{{year}}">{{year}}</option>
-                {% endif %}
-            {% endfor %}
-        </select>
-        <input type="submit" class="btn" value="Submit" />
-    </form>
-    <table class="table table-striped">
-        <thead>
-            <tr><th colspan="8">{{parametro_select.1}}</th>
-            </tr>
-            <tr>
-                <th>Fecha</th>
-                <th>Municipio</th>
-                <th>Punto de muestreo</th>
-                <th>Tipo de punto</th>
-                <th>Laboratorio</th>
-                <th>Motivo</th>
-                <th>Calificación</th>
-                <th>Resultado ({{ unidad }})</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for sample in samples %}
-                {% if sample.calificacion == 'Apta para el consumo' or sample.calificacion == 'Cumple con los valores paramétricos del RD 140/2003' %}
-                    <tr class="success">
-                {% elif sample.calificacion == 'No apta para el consumo' or sample.calificacion == 'Incumple parametros/indicadores del RD 140/2003' %}
-                    <tr class="error">
-                {% elif sample.calificacion == 'Sin calificación' %}
-                    <tr class="warning">
-                {% else %}
+    <div class="row">
+        <div class="span8">
+            <form class="form-inline" method="post">{% csrf_token %}
+                <label class="control-label" for="parametro"><b>Parametro</b> </label>
+                <select name="parametro" id="parametro">
+                    {% for parametro in parametros %}
+                        {% if parametro.0 == parametro_select.0 %}
+                            <option value="{{parametro.0}}" selected="selected">{{ parametro.1 }}</option>
+                        {% else %}
+                            <option value="{{parametro.0}}">{{ parametro.1 }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+                <select name="year" id="year">
+                    {% for year in years %}
+                        {% if year == selected_year %}
+                            <option value="{{year}}" selected="selected">{{year}}</option>
+                        {% else %}
+                            <option value="{{year}}">{{year}}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+                <input type="submit" class="btn" value="Submit" />
+            </form>
+            <table class="table table-striped">
+                <thead>
+                    <tr><th colspan="8">{{parametro_select.1}}</th>
+                    </tr>
                     <tr>
-                {% endif %}
-                    <td>{{sample.fecha}}</td>
-                    <td>{{ sample.municipio|lower|capfirst }}</td>
-                    <td>{{ sample.punto_muestreo }}</td>
-                    {% if sample.tipo_punto == None %}
-                        <td>-</td>
-                    {% else %}
-                        <td>{{ sample.tipo_punto }}</td>
-                    {% endif %}
-                    <td>{{ sample.laboratorio|lower|capfirst }}</td>
-                    <td>{{ sample.motivo }}</td>
-                    <td>{{ sample.calificacion }}</td>
-                    <td>{{ sample.resultado }}</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+                        <th>Fecha</th>
+                        <th>Municipio</th>
+                        <th>Punto de muestreo</th>
+                        <th>Tipo de punto</th>
+                        <th>Laboratorio</th>
+                        <th>Motivo</th>
+                        <th>Calificación</th>
+                        <th>Resultado ({{ unidad }})</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for sample in samples %}
+                        {% if sample.calificacion == 'Apta para el consumo' or sample.calificacion == 'Cumple con los valores paramétricos del RD 140/2003' %}
+                            <tr class="success">
+                        {% elif sample.calificacion == 'No apta para el consumo' or sample.calificacion == 'Incumple parametros/indicadores del RD 140/2003' %}
+                            <tr class="error">
+                        {% elif sample.calificacion == 'Sin calificación' %}
+                            <tr class="warning">
+                        {% else %}
+                            <tr>
+                        {% endif %}
+                            <td>{{sample.fecha}}</td>
+                            <td>{{ sample.municipio|lower|capfirst }}</td>
+                            <td>{{ sample.punto_muestreo }}</td>
+                            {% if sample.tipo_punto == None %}
+                                <td>-</td>
+                            {% else %}
+                                <td>{{ sample.tipo_punto }}</td>
+                            {% endif %}
+                            <td>{{ sample.laboratorio|lower|capfirst }}</td>
+                            <td>{{ sample.motivo }}</td>
+                            <td>{{ sample.calificacion }}</td>
+                            <td>{{ sample.resultado }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="span2">
+                <h3>Captaciones</h3>
+                {% for captacion in captaciones %}
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th colspan="2">{{captacion.captacion}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><b>Municipio:</b></td>
+                                <td>{{ captacion.municipio|lower|capfirst }}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Provincia:</b></td>
+                                <td>{{ captacion.provincia }}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Tipo de elemento:</b></td>
+                                <td>{{ captacion.tipo_elemento }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                {% endfor %}
+        </div>
+    </div>
 {% endblock %}
