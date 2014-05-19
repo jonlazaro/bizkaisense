@@ -9,7 +9,7 @@
     <div class="row">
         <div class="span8">
             <form class="form-inline" method="post">{% csrf_token %}
-                <label class="control-label" for="parametro"><b>Parametro</b> </label>
+                <label class="control-label" for="parametro"><b>{% trans "Parameter" %}</b> </label>
                 <select name="parametro" id="parametro">
                     {% for parametro in parametros %}
                         {% if parametro.0 == parametro_select.0 %}
@@ -28,21 +28,21 @@
                         {% endif %}
                     {% endfor %}
                 </select>
-                <input type="submit" class="btn" value="Submit" />
+                <input type="submit" class="btn" value="{% trans "Submit" %}" />
             </form>
             <table class="table table-striped">
                 <thead>
                     <tr><th colspan="8">{{parametro_select.1}}</th>
                     </tr>
                     <tr>
-                        <th>Fecha</th>
-                        <th>Municipio</th>
-                        <th>Punto de muestreo</th>
-                        <th>Tipo de punto</th>
-                        <th>Laboratorio</th>
-                        <th>Motivo</th>
-                        <th>Calificación</th>
-                        <th>Resultado ({{ unidad }})</th>
+                        <th>{% trans "Date" %}</th>
+                        <th>{% trans "Municipality" %}</th>
+                        <th>{% trans "Sampling point" %}</th>
+                        <th>{% trans "Point type" %}</th>
+                        <th>{% trans "Laboratory" %}</th>
+                        <th>{% trans "Cause" %}</th>
+                        <th>{% trans "Rating"%}</th>
+                        <th>{% trans "Value" %} ({{ unidad }})</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -84,15 +84,15 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><b>Municipio:</b></td>
+                                <td><b>{% trans "Municipality" %}:</b></td>
                                 <td>{{ captacion.municipio|lower|capfirst }}</td>
                             </tr>
                             <tr>
-                                <td><b>Provincia:</b></td>
+                                <td><b>{% trans "Province" %}:</b></td>
                                 <td>{{ captacion.provincia }}</td>
                             </tr>
                             <tr>
-                                <td><b>Tipo de elemento:</b></td>
+                                <td><b>{% trans "Element type" %}:</b></td>
                                 <td>{{ captacion.tipo_elemento }}</td>
                             </tr>
                         </tbody>

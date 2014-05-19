@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-16 12:24+0200\n"
+"POT-Creation-Date: 2014-05-19 11:58+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,31 +26,36 @@ msgstr "ERROR 404: página no econtrada."
 msgid "ERROR 500: Server error."
 msgstr "ERROR 500: error del servidor."
 
-#: templates/base.html:48 templates/index.html:11
+#: templates/base.html:57 templates/index.html:11
 msgid "Air quality monitoring stations"
 msgstr "Estaciones de calidad del aire"
 
-#: templates/base.html:49
+#: templates/base.html:58
 msgid "Air quality calculation"
 msgstr "Cálculo de calidad del aire"
 
-#: templates/base.html:50
+#: templates/base.html:59
 msgid "SNORQL Endpoint"
 msgstr "SNORQL Endpoint"
 
-#: templates/base.html:51
-msgid "SPARQL Endpoint (POST)"
-msgstr "SPARQL Endpoint (POST)"
+#: templates/base.html:60
+#, fuzzy
+msgid "SPARQL Endpoint"
+msgstr "SNORQL Endpoint"
 
-#: templates/base.html:52
+#: templates/base.html:61
 msgid "Documentation"
 msgstr "Documentación"
 
 #: templates/docs.html:8
+msgid "Source Code"
+msgstr ""
+
+#: templates/docs.html:11
 msgid "Data sources"
 msgstr "Fuentes de datos"
 
-#: templates/docs.html:9
+#: templates/docs.html:12
 #, python-format
 msgid ""
 "\n"
@@ -61,11 +66,11 @@ msgstr ""
 "Datos originales extraídos desde el %(start_url)s Departamento de Medio "
 "Ambiente y Política Territorial del Gobierno Vasco%(end_url)s.\n"
 
-#: templates/docs.html:13
+#: templates/docs.html:16
 msgid "Data model"
 msgstr "Modelo de datos"
 
-#: templates/docs.html:15
+#: templates/docs.html:18
 #, python-format
 msgid ""
 "\n"
@@ -88,15 +93,15 @@ msgstr ""
 msgid "Click on each station to find its data about air quality:"
 msgstr "Pincha en las estaciones para buscar sus datos de calidad del aire:"
 
-#: templates/index.html:64
+#: templates/index.html:66 templates/index.html.py:109
 msgid "Show details"
 msgstr "Mostrar detalles"
 
-#: templates/index.html:65
+#: templates/index.html:67
 msgid "More information in"
 msgstr "Más información en"
 
-#: templates/index.html:65
+#: templates/index.html:67
 msgid "its webpage"
 msgstr "su página web"
 
@@ -123,3 +128,54 @@ msgstr "RDF"
 #: templates/station.html:60
 msgid "No results found"
 msgstr "Ningún resultado encontrado"
+
+#: templates/water.html:12
+msgid "Parameter"
+msgstr "Parámetro"
+
+#: templates/water.html:31
+msgid "Submit"
+msgstr "Enviar"
+
+#: templates/water.html:38
+msgid "Date"
+msgstr "Fecha"
+
+#: templates/water.html:39 templates/water.html.py:87
+msgid "Municipality"
+msgstr "Municipio"
+
+#: templates/water.html:40
+msgid "Sampling point"
+msgstr "Punto de muestreo"
+
+#: templates/water.html:41
+msgid "Point type"
+msgstr "Tipo de punto"
+
+#: templates/water.html:42
+msgid "Laboratory"
+msgstr "Laboratorio"
+
+#: templates/water.html:43
+msgid "Cause"
+msgstr "Causa"
+
+#: templates/water.html:44
+msgid "Rating"
+msgstr "Calificación"
+
+#: templates/water.html:45
+msgid "Value"
+msgstr "Valor"
+
+#: templates/water.html:91
+msgid "Province"
+msgstr "Provincia"
+
+#: templates/water.html:95
+msgid "Element type"
+msgstr "Tipo de elemento"
+
+#~ msgid "SPARQL Endpoint (POST)"
+#~ msgstr "SPARQL Endpoint (POST)"
