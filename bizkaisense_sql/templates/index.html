@@ -70,7 +70,7 @@
 
         testData.data.push({ "lat": {{ station.lat }}, "lon": {{ station.lng }}});
 
-        var ll = new OpenLayers.LonLat({{ station.lng }}, {{ station.lat }}).transform( memeProjection, smProjection);
+        var ll = new OpenLayers.LonLat({{ station.lng }}, {{ station.lat }}).transform( wgsProjection, smProjection);
         var popupClass = AutoSizeFramedCloud;
         var popupContentHTML = contentString;
 
