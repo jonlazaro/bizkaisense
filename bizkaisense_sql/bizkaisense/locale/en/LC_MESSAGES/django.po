@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-19 11:58+0200\n"
+"POT-Creation-Date: 2014-05-19 12:52+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,8 +26,8 @@ msgstr "ERROR 404: Page not found."
 msgid "ERROR 500: Server error."
 msgstr "ERROR 500: Server error."
 
-#: templates/base.html:57 templates/index.html:11
-msgid "Air quality monitoring stations"
+#: templates/base.html:57
+msgid "Index"
 msgstr ""
 
 #: templates/base.html:58
@@ -76,14 +76,20 @@ msgid ""
 "(%(paper_url)s):\n"
 msgstr ""
 
+#: templates/index.html:11
+msgid "Air quality monitoring stations and drinking water quality measurements"
+msgstr ""
+
 #: templates/index.html:14
 msgid ""
 "In this map you can find the air quality monitoring stations from Basque "
-"Country."
+"Country and the measurements done to ensure the quality of  the drinking "
+"water."
 msgstr ""
 
 #: templates/index.html:15
-msgid "Click on each station to find its data about air quality:"
+msgid ""
+"Click on each marker to find the data about air or drinking water quality:"
 msgstr ""
 
 #: templates/index.html:66 templates/index.html.py:109

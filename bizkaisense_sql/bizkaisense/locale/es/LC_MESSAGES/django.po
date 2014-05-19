@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-19 11:58+0200\n"
+"POT-Creation-Date: 2014-05-19 12:52+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,9 +26,9 @@ msgstr "ERROR 404: página no econtrada."
 msgid "ERROR 500: Server error."
 msgstr "ERROR 500: error del servidor."
 
-#: templates/base.html:57 templates/index.html:11
-msgid "Air quality monitoring stations"
-msgstr "Estaciones de calidad del aire"
+#: templates/base.html:57
+msgid "Index"
+msgstr "Inicio"
 
 #: templates/base.html:58
 msgid "Air quality calculation"
@@ -81,17 +81,26 @@ msgstr ""
 "El proceso de extracción y el modelo de datos se describen en la siguiente "
 "publicación (%(paper_url)s):\n"
 
+#: templates/index.html:11
+#, fuzzy
+msgid "Air quality monitoring stations and drinking water quality measurements"
+msgstr "Estaciones de calidad del aire y medidas de la calidad de las aguas de consumo"
+
 #: templates/index.html:14
+#, fuzzy
 msgid ""
 "In this map you can find the air quality monitoring stations from Basque "
-"Country."
+"Country and the measurements done to ensure the quality of  the drinking "
+"water."
 msgstr ""
 "En este mapa se encuentran geolocalizadas las estaciones de medición de la "
-"calidad del aire en la Comunidad Autónoma Vasca."
+"calidad del aire y las mediciones de calidad de las aguas de consumo de la Comunidad Autónoma Vasca."
 
 #: templates/index.html:15
-msgid "Click on each station to find its data about air quality:"
-msgstr "Pincha en las estaciones para buscar sus datos de calidad del aire:"
+#, fuzzy
+msgid ""
+"Click on each marker to find the data about air or drinking water quality:"
+msgstr "Pincha en cada marcador para buscar los datos de calidad del aire y aguas de consumo:"
 
 #: templates/index.html:66 templates/index.html.py:109
 msgid "Show details"
@@ -176,6 +185,9 @@ msgstr "Provincia"
 #: templates/water.html:95
 msgid "Element type"
 msgstr "Tipo de elemento"
+
+#~ msgid "Air quality monitoring stations"
+#~ msgstr "Estaciones de calidad del aire"
 
 #~ msgid "SPARQL Endpoint (POST)"
 #~ msgstr "SPARQL Endpoint (POST)"
