@@ -6,14 +6,14 @@
 
 {% block content %}
 <h1 id="centered"><small>{% trans "Source Code" %}</small></h1>
-<a href="https://github.com/jonlazaro/bizkaisense" target="_blank"><img src="{{ STATIC_PREFIX }}images/github-icon.png" width="25/"> https://github.com/jonlazaro/bizkaisense</a>
+<a href="https://github.com/jonlazaro/bizkaisense" target="_blank"><img src="{{ STATIC_PREFIX }}images/github-icon.png" width="25/"> https://github.com/memaldi/bizkaisense</a>
 
 <h1 id="centered"><small>{% trans "Data sources" %}</small></h1>
-{% blocktrans with '<a href="http://www.ingurumena.ejgv.euskadi.net/r49-n82/es/vima_ai_vigilancia/indice.apl?lenguaje=c" target="_blank">' as start_url and '</a>' as end_url %}
-Source data extracted from {{ start_url }} Basque Government's Environment and Regional Policy department{{ end_url }}.
+{% blocktrans with '<a href="http://opendata.euskadi.net/" target="_blank">' as start_url and '</a>' as end_url %}
+Source data extracted from {{ start_url }} Open Data Euskadi {{ end_url }}.
 {% endblocktrans %}
 
-<h1 id="centered"><small>{% trans "Data model" %}</small></h1> 
+<h1 id="centered"><small>{% trans "Data model" %}</small></h1>
 <p>
 {% blocktrans with '<a href="http://ceur-ws.org/Vol-904/paper7.pdf" target="_blank">PDF</a>' as paper_url %}
 Data extration process and data model are described on the following paper ({{ paper_url }}):
