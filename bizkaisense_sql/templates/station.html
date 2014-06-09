@@ -16,7 +16,7 @@
 	    			<p>{{ station.address }}</p>
 	    		{% endif %}
 	    		<img src="http://staticmap.openstreetmap.de/staticmap.php?center={{ station.lat }},{{ station.lng }}&zoom=14&size=200x200&maptype=mapnik&markers={{ station.lat }},{{ station.lng }},ol-marker" class="img-polaroid span2"/>
-	    		<div class="span2"><br /><a href="{{ station.uri }}" target="_blank"><img src="{{ STATIC_PREFIX }}images/rdf.png"/></a></div>
+	    		<div class="span2"><br /><a href="{{ station.uri|replace:"bizkaisense:euskalsense" }}" target="_blank"><img src="{{ STATIC_PREFIX }}images/rdf.png"/></a></div>
 			</div>
 
 	      	<div class="span7">
@@ -30,7 +30,7 @@
 				      <button id="id_date_btn" class="btn" type="button"><i class="icon-calendar"></i></button>
 				    </div>
 				   <div class="pull-left">{{ form.obstypes.errors }}{{ form.obstypes }}&nbsp;&nbsp;&nbsp;&nbsp;</div>
-				   <input type="submit" value="Ver" class="btn pull-left"/> 
+				   <input type="submit" value="Ver" class="btn pull-left"/>
 				   </div>
 				  </div>
 				</form>
@@ -61,7 +61,7 @@
 				{% endif %}
 	    	</div>
 	  	{% endif %}
-  	</section> 
+  	</section>
 {% endblock %}
 
 {% block scripts %}
@@ -94,7 +94,7 @@
 		};
 
 		function init() {
-			$("#id_date").datepicker({ 
+			$("#id_date").datepicker({
 				maxDate: -1,
 				dateFormat: "yy-mm-dd"
 			});
@@ -102,7 +102,7 @@
 		            event.preventDefault();
 		            $("#id_date").focus();
 	        	})
-			
+
 			drawVisualization('{{ station.name }}');
 		};
 	</script>
