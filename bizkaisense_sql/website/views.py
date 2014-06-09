@@ -275,10 +275,10 @@ def api_obs_day(request, stid, propid, date):
     #return HttpResponse(json.dumps(resp), mimetype="application/x-javascript")
 
 def endpoint(request):
-    return render_to_response('endpoint.html')
+    return render_to_response('endpoint.html', context_instance=RequestContext(request))
 
 def docs(request):
-    return render_to_response('docs.html')
+    return render_to_response('docs.html', context_instance=RequestContext(request))
 
 @json_response
 def api_outlimit_stations(request, propid, startdate, enddate, limit):
