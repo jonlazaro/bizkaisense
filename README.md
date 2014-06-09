@@ -1,9 +1,9 @@
-Bizkaisense
-===========
+EuskalSense (Formerly BizkaiSense)
+==================================
 
-Bizkaisense is an effort on the publication of enviromental Open Data from Basque Country as Linked Open Data. In this project we scrap, store, semantize and visualize air quality measures.
+Bizkaisense is an effort on the publication of enviromental Open Data from Basque Country as Linked Open Data. In this project we scrap, store, semantize and visualize air  and drinking water quality measures.
 
-At this moment the scripts scrap information from more than 70 stations and generate more than 6,000,000 observations.
+At this moment the scripts scrap information from more than 70 air quality stations, more than 800 water sources and generate more than 9,000,000 observations.
 
 This repository includes the scripts, the Django website in which we visualize the data, and the D2R script that makes the conversion from SQL to RDF.
 
@@ -14,7 +14,7 @@ In a last update of the project we have improved the performance of the data gen
 
 Data included in this repository:
 
-Scripts that get air quality measures of Basque Country from Open Data Euskadi (ODE):
+Scripts that get air and drinking water quality measures of Basque Country from Open Data Euskadi (ODE):
 - The folder sql_generators/pig contains the Pig script that gets measures from ODE using Hadoop, and stores them in a SQL database.
 - The folder sql_generators contains the Python scripts that get measures from ODE and store them in a SQL database.
 - The folder rdf_generators contains the Python scripts that get measures from ODE and create RDF triples based on SSN ontology.
@@ -28,9 +28,3 @@ D2R mapping:
 
 Slides:
 - The slides folder contains a presentation explaining the details of the project (spanish).
-
-
-
-
-
-

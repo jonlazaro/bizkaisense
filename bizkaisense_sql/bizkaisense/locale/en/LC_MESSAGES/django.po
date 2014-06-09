@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-19 12:52+0200\n"
+"POT-Creation-Date: 2014-06-09 09:33+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -60,8 +60,7 @@ msgstr ""
 #, python-format
 msgid ""
 "\n"
-"Source data extracted from %(start_url)s Basque Government's Environment and "
-"Regional Policy department%(end_url)s.\n"
+"Source data extracted    from %(start_url)s Open Data Euskadi %(end_url)s.\n"
 msgstr ""
 
 #: templates/docs.html:16
@@ -72,7 +71,7 @@ msgstr ""
 #, python-format
 msgid ""
 "\n"
-"Data extration process and data model are described on the following paper "
+"Data extraction process and data model are described on the following paper "
 "(%(paper_url)s):\n"
 msgstr ""
 
