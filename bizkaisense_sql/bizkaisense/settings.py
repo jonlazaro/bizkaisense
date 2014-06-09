@@ -2,7 +2,7 @@
 from database_config import databases, connection_string
 import os
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
