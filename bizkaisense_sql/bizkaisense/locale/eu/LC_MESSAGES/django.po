@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-09 09:33+0200\n"
+"POT-Creation-Date: 2014-06-09 15:59+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,7 +19,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: templates/404.html:6
-#, fuzzy
 msgid "ERROR 404: Page not found."
 msgstr "404 ERROREA: ezin da orrialdea aurkitu-"
 
@@ -57,10 +56,10 @@ msgid "Data sources"
 msgstr "Datu iturburuak"
 
 #: templates/docs.html:12
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "\n"
-"Source data extracted    from %(start_url)s Open Data Euskadi %(end_url)s.\n"
+"Source data extracted from %(start_url)s Open Data Euskadi %(end_url)s.\n"
 msgstr ""
 "\n"
 "Jatorrizko datuak %(start_url)s Open Data Euskaditik %(end_url)s aterata.\n"
@@ -81,15 +80,13 @@ msgstr ""
 "ditzakezu (%(paper_url)s):\n"
 
 #: templates/index.html:11
-#, fuzzy
 msgid "Air quality monitoring stations and drinking water quality measurements"
-msgstr "Airearen kalitatearen estazioak"
+msgstr "Airearen eta edateko uraren kalitatearen estazioak"
 
 #: templates/index.html:14
-#, fuzzy
 msgid ""
 "In this map you can find the air quality monitoring stations from Basque "
-"Country and the measurements done to ensure the quality of  the drinking "
+"Country and the measurements done to ensure the quality of the drinking "
 "water."
 msgstr ""
 "Mapa honetan Euskal Autonomi Erkidegoko airearen kalitatea zaindu eta "
@@ -97,7 +94,6 @@ msgstr ""
 "kalitatearekin batera"
 
 #: templates/index.html:15
-#, fuzzy
 msgid ""
 "Click on each marker to find the data about air or drinking water quality:"
 msgstr ""

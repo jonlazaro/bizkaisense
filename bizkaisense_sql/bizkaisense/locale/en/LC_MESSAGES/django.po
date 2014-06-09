@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-09 09:33+0200\n"
+"POT-Creation-Date: 2014-06-09 15:59+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -60,7 +60,7 @@ msgstr ""
 #, python-format
 msgid ""
 "\n"
-"Source data extracted    from %(start_url)s Open Data Euskadi %(end_url)s.\n"
+"Source data extracted from %(start_url)s Open Data Euskadi %(end_url)s.\n"
 msgstr ""
 
 #: templates/docs.html:16
@@ -82,7 +82,7 @@ msgstr ""
 #: templates/index.html:14
 msgid ""
 "In this map you can find the air quality monitoring stations from Basque "
-"Country and the measurements done to ensure the quality of  the drinking "
+"Country and the measurements done to ensure the quality of the drinking "
 "water."
 msgstr ""
 
