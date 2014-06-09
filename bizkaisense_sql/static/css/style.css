@@ -1,7 +1,6 @@
-
-* {
+/* * {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
+} */
 
 html, body {
     height: 100%;
@@ -78,11 +77,11 @@ header {
 /* Sticky footer styles
 -------------------------------------------------- */
 
-#push, footer {
-    height: 10em;
+#push, #footer {
+    height: 20em;
 }
 
-footer {
+#footer {
     background-color: #f5f5f5;
     border-top: #5a5a5a 0.25em solid;
 }
