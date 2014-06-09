@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-19 12:52+0200\n"
+"POT-Creation-Date: 2014-06-09 09:33+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -56,15 +56,14 @@ msgid "Data sources"
 msgstr "Fuentes de datos"
 
 #: templates/docs.html:12
-#, python-format
+#, fuzzy, python-format
 msgid ""
 "\n"
-"Source data extracted from %(start_url)s Basque Government's Environment and "
-"Regional Policy department%(end_url)s.\n"
+"Source data extracted    from %(start_url)s Open Data Euskadi %(end_url)s.\n"
 msgstr ""
 "\n"
-"Datos originales extraídos desde el %(start_url)s Departamento de Medio "
-"Ambiente y Política Territorial del Gobierno Vasco%(end_url)s.\n"
+"Datos originales extraídos desde %(start_url)s Open Data Euskadi "
+"%(end_url)s.\n"
 
 #: templates/docs.html:16
 msgid "Data model"
@@ -74,7 +73,7 @@ msgstr "Modelo de datos"
 #, python-format
 msgid ""
 "\n"
-"Data extration process and data model are described on the following paper "
+"Data extraction process and data model are described on the following paper "
 "(%(paper_url)s):\n"
 msgstr ""
 "\n"
@@ -84,7 +83,9 @@ msgstr ""
 #: templates/index.html:11
 #, fuzzy
 msgid "Air quality monitoring stations and drinking water quality measurements"
-msgstr "Estaciones de calidad del aire y medidas de la calidad de las aguas de consumo"
+msgstr ""
+"Estaciones de calidad del aire y medidas de la calidad de las aguas de "
+"consumo"
 
 #: templates/index.html:14
 #, fuzzy
@@ -94,13 +95,16 @@ msgid ""
 "water."
 msgstr ""
 "En este mapa se encuentran geolocalizadas las estaciones de medición de la "
-"calidad del aire y las mediciones de calidad de las aguas de consumo de la Comunidad Autónoma Vasca."
+"calidad del aire y las mediciones de calidad de las aguas de consumo de la "
+"Comunidad Autónoma Vasca."
 
 #: templates/index.html:15
 #, fuzzy
 msgid ""
 "Click on each marker to find the data about air or drinking water quality:"
-msgstr "Pincha en cada marcador para buscar los datos de calidad del aire y aguas de consumo:"
+msgstr ""
+"Pincha en cada marcador para buscar los datos de calidad del aire y aguas de "
+"consumo:"
 
 #: templates/index.html:66 templates/index.html.py:109
 msgid "Show details"

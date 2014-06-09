@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-19 12:52+0200\n"
+"POT-Creation-Date: 2014-06-09 09:33+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -57,15 +57,13 @@ msgid "Data sources"
 msgstr "Datu iturburuak"
 
 #: templates/docs.html:12
-#, python-format
+#, fuzzy, python-format
 msgid ""
 "\n"
-"Source data extracted from %(start_url)s Basque Government's Environment and "
-"Regional Policy department%(end_url)s.\n"
+"Source data extracted    from %(start_url)s Open Data Euskadi %(end_url)s.\n"
 msgstr ""
 "\n"
-"Jatorrizko datuak %(start_url)s Eusko Jaurlaritzako Ingurumen eta Lurralde "
-"Politika sailetik%(end_url)s aterata.\n"
+"Jatorrizko datuak %(start_url)s Open Data Euskaditik %(end_url)s aterata.\n"
 
 #: templates/docs.html:16
 msgid "Data model"
@@ -75,7 +73,7 @@ msgstr "Datu modeloa"
 #, python-format
 msgid ""
 "\n"
-"Data extration process and data model are described on the following paper "
+"Data extraction process and data model are described on the following paper "
 "(%(paper_url)s):\n"
 msgstr ""
 "\n"
@@ -95,14 +93,16 @@ msgid ""
 "water."
 msgstr ""
 "Mapa honetan Euskal Autonomi Erkidegoko airearen kalitatea zaindu eta "
-"kontrolatzeko estazioen geolokalizazioa aurki ditzakezu kontsumorako uren kalitatearekin batera"
+"kontrolatzeko estazioen geolokalizazioa aurki ditzakezu kontsumorako uren "
+"kalitatearekin batera"
 
 #: templates/index.html:15
 #, fuzzy
 msgid ""
 "Click on each marker to find the data about air or drinking water quality:"
 msgstr ""
-"Sakatu markatzaile bakoitzean airearen kontsumorako uren kalitateari buruzko eta datuak bilatzeko:"
+"Sakatu markatzaile bakoitzean airearen kontsumorako uren kalitateari buruzko "
+"eta datuak bilatzeko:"
 
 #: templates/index.html:66 templates/index.html.py:109
 msgid "Show details"
