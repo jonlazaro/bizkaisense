@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-09 15:59+0200\n"
+"POT-Creation-Date: 2014-06-10 10:24+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,31 +31,43 @@ msgid "Index"
 msgstr "Inicio"
 
 #: templates/base.html:58
-msgid "Air quality calculation"
-msgstr "Cálculo de calidad del aire"
-
-#: templates/base.html:59
 msgid "SNORQL Endpoint"
 msgstr "SNORQL Endpoint"
 
-#: templates/base.html:60
-#, fuzzy
-msgid "SPARQL Endpoint"
-msgstr "SNORQL Endpoint"
-
-#: templates/base.html:61
+#: templates/base.html:59
 msgid "Documentation"
 msgstr "Documentación"
 
 #: templates/docs.html:8
+msgid "API"
+msgstr ""
+
+#: templates/docs.html:10
+#, python-format
+msgid ""
+" \n"
+"Data can be queried programatically through the SPARQL endpoint at %(url)s. "
+"The syntax is the following:\n"
+"<div class=\"well\">\n"
+" %(query)s\n"
+"</div>\n"
+msgstr ""
+" \n"
+"Los datos se pueden consultar de manera programática a través del SPARQL endpoint disponible en %(url)s."
+"La sintaxis es la siguiente:\n"
+"<div class=\"well\">\n"
+" %(query)s\n"
+"</div>\n"
+
+#: templates/docs.html:18
 msgid "Source Code"
 msgstr ""
 
-#: templates/docs.html:11
+#: templates/docs.html:21
 msgid "Data sources"
 msgstr "Fuentes de datos"
 
-#: templates/docs.html:12
+#: templates/docs.html:22
 #, python-format
 msgid ""
 "\n"
@@ -65,11 +77,11 @@ msgstr ""
 "Datos originales extraídos desde %(start_url)s Open Data Euskadi "
 "%(end_url)s.\n"
 
-#: templates/docs.html:16
+#: templates/docs.html:26
 msgid "Data model"
 msgstr "Modelo de datos"
 
-#: templates/docs.html:18
+#: templates/docs.html:28
 #, python-format
 msgid ""
 "\n"
@@ -115,27 +127,27 @@ msgstr "Más información en"
 msgid "its webpage"
 msgstr "su página web"
 
-#: templates/station.html:24
+#: templates/station.html:25
 msgid "Select the stat you want to see:"
 msgstr "Selecciona las estadísticas que quieras ver:"
 
-#: templates/station.html:40
+#: templates/station.html:41
 msgid "*About the limit value:"
 msgstr "*Acerca del valor límite:"
 
-#: templates/station.html:44
+#: templates/station.html:45
 msgid "Hour"
 msgstr "Hora"
 
-#: templates/station.html:45
+#: templates/station.html:46
 msgid "Measurement"
 msgstr "Medición"
 
-#: templates/station.html:46
+#: templates/station.html:47
 msgid "RDF"
 msgstr "RDF"
 
-#: templates/station.html:60
+#: templates/station.html:61
 msgid "No results found"
 msgstr "Ningún resultado encontrado"
 
@@ -186,6 +198,13 @@ msgstr "Provincia"
 #: templates/water.html:95
 msgid "Element type"
 msgstr "Tipo de elemento"
+
+#~ msgid "Air quality calculation"
+#~ msgstr "Cálculo de calidad del aire"
+
+#, fuzzy
+#~ msgid "SPARQL Endpoint"
+#~ msgstr "SNORQL Endpoint"
 
 #~ msgid "Air quality monitoring stations"
 #~ msgstr "Estaciones de calidad del aire"

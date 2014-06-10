@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-09 15:59+0200\n"
+"POT-Creation-Date: 2014-06-10 10:24+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,31 +31,43 @@ msgid "Index"
 msgstr "Hasiera"
 
 #: templates/base.html:58
-msgid "Air quality calculation"
-msgstr "Airearen kalitearen kalkulua"
-
-#: templates/base.html:59
 msgid "SNORQL Endpoint"
 msgstr "SNORQL Endpoint"
 
-#: templates/base.html:60
-#, fuzzy
-msgid "SPARQL Endpoint"
-msgstr "SNORQL Endpoint"
-
-#: templates/base.html:61
+#: templates/base.html:59
 msgid "Documentation"
 msgstr "Dokumentazioa"
 
 #: templates/docs.html:8
+msgid "API"
+msgstr ""
+
+#: templates/docs.html:10
+#, python-format
+msgid ""
+" \n"
+"Data can be queried programatically through the SPARQL endpoint at %(url)s. "
+"The syntax is the following:\n"
+"<div class=\"well\">\n"
+" %(query)s\n"
+"</div>\n"
+msgstr ""
+" \n"
+"Datuak programatikoki kontsultatu daitezke SPARQL endpoint-aren bidez: %(url)s."
+"Sintaxia honelakoa da:\n"
+"<div class=\"well\">\n"
+" %(query)s\n"
+"</div>\n"
+
+#: templates/docs.html:18
 msgid "Source Code"
 msgstr ""
 
-#: templates/docs.html:11
+#: templates/docs.html:21
 msgid "Data sources"
 msgstr "Datu iturburuak"
 
-#: templates/docs.html:12
+#: templates/docs.html:22
 #, python-format
 msgid ""
 "\n"
@@ -64,11 +76,11 @@ msgstr ""
 "\n"
 "Jatorrizko datuak %(start_url)s Open Data Euskaditik %(end_url)s aterata.\n"
 
-#: templates/docs.html:16
+#: templates/docs.html:26
 msgid "Data model"
 msgstr "Datu modeloa"
 
-#: templates/docs.html:18
+#: templates/docs.html:28
 #, python-format
 msgid ""
 "\n"
@@ -112,27 +124,27 @@ msgstr "Informazio gehiago bere"
 msgid "its webpage"
 msgstr "web orrialdean"
 
-#: templates/station.html:24
+#: templates/station.html:25
 msgid "Select the stat you want to see:"
 msgstr "Aukeratu ikusi nahi duzun estatistika:"
 
-#: templates/station.html:40
+#: templates/station.html:41
 msgid "*About the limit value:"
 msgstr "*Gehienezko kontzentrazioari buruz:"
 
-#: templates/station.html:44
+#: templates/station.html:45
 msgid "Hour"
 msgstr "Ordua"
 
-#: templates/station.html:45
+#: templates/station.html:46
 msgid "Measurement"
 msgstr "Neurketa"
 
-#: templates/station.html:46
+#: templates/station.html:47
 msgid "RDF"
 msgstr "RDF"
 
-#: templates/station.html:60
+#: templates/station.html:61
 msgid "No results found"
 msgstr "Ez da inolako emaitzarik aurkitu."
 
@@ -183,6 +195,13 @@ msgstr "Probintzia"
 #: templates/water.html:95
 msgid "Element type"
 msgstr "Elementu mota"
+
+#~ msgid "Air quality calculation"
+#~ msgstr "Airearen kalitearen kalkulua"
+
+#, fuzzy
+#~ msgid "SPARQL Endpoint"
+#~ msgstr "SNORQL Endpoint"
 
 #~ msgid "Air quality monitoring stations"
 #~ msgstr "Airearen kalitatearen estazioak"

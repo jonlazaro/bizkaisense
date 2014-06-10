@@ -5,6 +5,16 @@
 {% get_static_prefix as STATIC_PREFIX %}
 
 {% block content %}
+<h1 id="centered"><small>{% trans "API" %}</small></h1>
+<p>
+{% blocktrans with '<a href="http://helheim.deusto.es/euskalsense/sparql">http://helheim.deusto.es/euskalsense/sparql</a>' as url and 'http://helheim.deusto.es/euskalsense/sparql?query=SPARQL_QUERY' as query %} 
+Data can be queried programatically through the SPARQL endpoint at {{ url }}. The syntax is the following:
+<div class="well">
+ {{ query }}
+</div>
+{% endblocktrans %}
+</p>
+
 <h1 id="centered"><small>{% trans "Source Code" %}</small></h1>
 <a href="https://github.com/memaldi/bizkaisense" target="_blank"><img src="{{ STATIC_PREFIX }}images/github-icon.png" width="25/"> https://github.com/memaldi/bizkaisense</a>
 
